@@ -141,8 +141,8 @@ footer a{color:#dfeee9}
 <section class="hero">
   <div class="wrap">
     <span class="cities">Санкт-Петербург • Екатеринбург • Казань</span>
-    <h1>Уборка после ремонта и регулярный клининг бизнеса — цена фиксируется до начала работ</h1>
-    <p class="lead">Пришлите фото объекта — мы рассчитаем стоимость и согласуем её с вами до выезда. Если объект соответствует фото и описанию, сумма на месте не меняется.</p>
+    <h1 id="hero-title">Уборка после ремонта и регулярный клининг бизнеса — цена фиксируется до начала работ</h1>
+    <p class="lead" id="hero-lead">Пришлите фото объекта — мы рассчитаем стоимость и согласуем её с вами до выезда. Если объект соответствует фото и описанию, сумма на месте не меняется.</p>
 
     <div class="hero-grid">
       <div class="hero-card"><b>После ремонта — от 180 ₽/м²</b><span class="muted">Подготовим квартиру или коммерческое помещение к заселению или открытию: строительная пыль, поверхности, санузлы, финальная приёмка.</span></div>
@@ -272,16 +272,11 @@ footer a{color:#dfeee9}
 </section>
 
 <!-- ФОТО ДО/ПОСЛЕ — заменить на свои -->
-<section class="soft" id="works">
+<section class="soft" id="works" hidden>
   <div class="wrap">
     <h2>Наши объекты: до и после</h2>
     <p class="muted">Только наши фотографии, без стока.</p>
-    <div class="photos" data-photos>
-      <div class="photo-slot">Фото «до»</div>
-      <div class="photo-slot">Фото «после»</div>
-      <div class="photo-slot">Фото «до»</div>
-      <div class="photo-slot">Фото «после»</div>
-    </div>
+    <div class="photos" data-photos></div>
   </div>
 </section>
 
@@ -492,7 +487,7 @@ const CONFIG = {
   telegram: "",         // username без @, например "cleaning_spb"
   whatsapp: "",         // номер только цифрами, например "79000000000"
   endpoint: "",         // URL веб-приложения Google Apps Script (см. README)
-  photos: []            // ["img/before-1.jpg", "img/after-1.jpg", ...]
+  photos: []            // ["img/before-1.jpg", "img/after-1.jpg", ...] — блок «до/после» появится сам
 };
 /* ================================================== */
 
@@ -516,6 +511,7 @@ const CONFIG = {
     if (kind === "phone" && !el.textContent.trim()) el.textContent = CONFIG.phone;
   });
   if (CONFIG.photos.length) {
+    $("#works").hidden = false;
     $("[data-photos]").innerHTML = CONFIG.photos
       .map(src => `<div class="photo-slot"><img src="${src}" alt="Объект до и после уборки" loading="lazy"></div>`).join("");
   }
@@ -565,7 +561,26 @@ const CONFIG = {
   [type, area, cond, win].forEach(el => el.addEventListener("input", estimate));
   type.addEventListener("change", () => { selectTab(type.value); setType(type.value); });
   $$("[data-pick]").forEach(a => a.addEventListener("click", () => { selectTab(a.dataset.pick); setType(a.dataset.pick); }));
-  setType("renovation");
+  // ?offer=office или ?offer=renovation — отдельная ссылка под каждую рекламную кампанию
+  const HERO = {
+    renovation: ["Уборка квартир и помещений после ремонта — цена фиксируется до выезда",
+      "Пришлите фото объекта — рассчитаем стоимость и согласуем её до начала работ. Если объект соответствует фото и описанию, сумма на месте не меняется."],
+    office: ["Регулярная уборка офисов 50–300 м² без своей уборщицы",
+      "Фиксированный график, замена исполнителя, если сотрудник не вышел, и контроль качества по чек-листу. Договор и оплата по безналу."]
+  };
+  const offer = new URLSearchParams(location.search).get("offer");
+  const startType = HERO[offer] ? offer : "renovation";
+  if (HERO[offer]) {
+    $("#hero-title").textContent = HERO[offer][0];
+    $("#hero-lead").textContent = HERO[offer][1];
+    const cards = $$(".hero-card"), btns = $$(".hero .btn");
+    if (offer === "office") {
+      cards[0].parentNode.prepend(cards[1]);
+      btns[0].parentNode.prepend(btns[1]);
+      btns[0].classList.add("ghost"); btns[1].classList.remove("ghost");
+    }
+  }
+  selectTab(startType); setType(startType);
 
   // фото: превью и сжатие
   const photosInput = $("#f-photos");
@@ -626,7 +641,7 @@ const CONFIG = {
       const r = await fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
       const res = await r.json().catch(() => ({}));
       if (!r.ok || res.ok === false) throw new Error(res.error || r.status);
-      form.reset(); $("#thumbs").innerHTML = ""; setType("renovation");
+      form.reset(); $("#thumbs").innerHTML = ""; setType(startType);
       show("ok", "<b>Спасибо! Мы получили заявку.</b><br>Свяжемся с вами в течение 15 минут для расчёта стоимости.");
       if (window.ym && window.YM_ID) ym(window.YM_ID, "reachGoal", "lead");
     } catch (err) {
