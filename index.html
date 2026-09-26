@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Уборка после ремонта и клининг офисов — СПб, Екатеринбург, Казань</title>
+<meta name="description" content="Уборка квартир после ремонта от 180 ₽/м² и регулярный клининг офисов 50–300 м². Стоимость фиксируем до начала работ, работаем по чек-листу, 24 часа на замечания.">
+<meta name="theme-color" content="#0f5c4d">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f3f7f5; --ink:#12201c; --muted:#5b6b66; --line:#dde6e2;
+  --brand:#0f5c4d; --brand-ink:#ffffff; --accent:#e8f3ef; --warn:#8a4b0f; --warn-bg:#fff6ea;
+  --radius:14px; --shadow:0 6px 24px rgba(15,40,34,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;padding-bottom:72px}
+a{color:var(--brand)}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(28px,6vw,46px);letter-spacing:-.01em}
+h2{font-size:clamp(24px,4.5vw,34px)}
+h3{font-size:19px}
+p{margin:0 0 1em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+section{padding:56px 0}
+section.soft{background:var(--bg-soft)}
+.lead{font-size:18px;color:var(--muted);max-width:720px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 22px;border-radius:12px;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;text-align:center}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.tab:focus-visible{outline:3px solid #7cc4b2;outline-offset:2px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.btns .btn{flex:1 1 260px}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:17px}
+.top-contacts{display:flex;gap:10px;align-items:center;font-size:15px}
+.top-contacts a{text-decoration:none;font-weight:600}
+
+/* hero */
+.hero{padding:40px 0 48px;background:linear-gradient(180deg,var(--accent),#fff)}
+.cities{display:inline-block;font-weight:600;color:var(--brand);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:16px;font-size:14px}
+.hero-grid{display:grid;gap:12px;margin:20px 0 0}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.hero-card b{display:block;margin-bottom:2px}
+.promises{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.promises li{padding-left:30px;position:relative}
+.promises li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.2'/%3E%3C/svg%3E") center/16px no-repeat}
+@media(min-width:760px){.hero-grid{grid-template-columns:1fr 1fr}}
+
+/* tabs */
+.tabs{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;margin:24px 0}
+.tab{flex:1;min-height:48px;border:0;border-radius:10px;background:transparent;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--brand);color:#fff}
+.panel[hidden]{display:none}
+.cols{display:grid;gap:16px}
+@media(min-width:860px){.cols{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card ul{margin:0;padding-left:20px}
+.card li{margin:4px 0}
+details.card{box-shadow:none}
+details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-size:22px;line-height:1;color:var(--brand)}
+details[open] summary::after{content:"−"}
+details[open] summary{margin-bottom:10px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.note{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:14px 16px;font-size:15px}
+
+/* price */
+.prices{display:grid;gap:16px;margin-top:24px}
+@media(min-width:760px){.prices{grid-template-columns:1fr 1fr}}
+.price{font-size:34px;font-weight:800;color:var(--brand);margin:4px 0}
+.price small{font-size:16px;font-weight:600;color:var(--muted)}
+table.addons{width:100%;border-collapse:collapse;font-size:15px}
+table.addons td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.addons td:last-child{text-align:right;white-space:nowrap;font-weight:600;padding-left:12px}
+
+/* steps */
+ol.steps{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;counter-reset:s}
+@media(min-width:760px){ol.steps{grid-template-columns:repeat(3,1fr)}}
+ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 16px 60px;position:relative}
+ol.steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--brand);font-weight:800;display:grid;place-items:center}
+ol.steps b{display:block}
+
+/* photos */
+.photos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+@media(min-width:760px){.photos{grid-template-columns:repeat(4,1fr)}}
+.photo-slot{aspect-ratio:4/3;border-radius:12px;background:var(--bg-soft);border:2px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:14px;text-align:center;padding:8px;overflow:hidden}
+.photo-slot img{width:100%;height:100%;object-fit:cover}
+
+/* form */
+.form-wrap{display:grid;gap:20px}
+@media(min-width:900px){.form-wrap{grid-template-columns:1.2fr .8fr;align-items:start}}
+form .row{display:grid;gap:14px}
+@media(min-width:560px){form .row.two{grid-template-columns:1fr 1fr}}
+label{display:block;font-weight:600;font-size:15px}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{display:block;width:100%;margin-top:6px;min-height:50px;padding:12px 14px;border:1px solid #c9d6d1;border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--muted)}
+.check input{width:22px;min-height:22px;height:22px;margin:2px 0 0;flex:none}
+.estimate{position:sticky;top:76px}
+.estimate .price{font-size:30px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-msg{border-radius:12px;padding:16px;margin-top:14px}
+.form-msg.ok{background:var(--accent);color:var(--brand)}
+.form-msg.err{background:#fdecec;color:#8a1c1c}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+
+/* faq */
+.faq{display:grid;gap:10px;margin-top:20px}
+
+/* sticky mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+.bar .btn{min-height:48px;padding:8px 10px;font-size:15px;flex:1}
+@media(min-width:900px){.bar{display:none}body{padding-bottom:0}}
+
+footer{padding:32px 0 40px;background:#0d1f1a;color:#b7c7c1;font-size:14px}
+footer a{color:#dfeee9}
+[data-contact][hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" data-brand>Название компании</a>
+    <div class="top-contacts">
+      <a data-contact="phone" href="#" hidden></a>
+      <a data-contact="telegram" href="#" hidden aria-label="Telegram">Telegram</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1. ГЛАВНЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <span class="cities">Санкт-Петербург • Екатеринбург • Казань</span>
+    <h1>Уборка после ремонта и регулярный клининг бизнеса — цена фиксируется до начала работ</h1>
+    <p class="lead">Пришлите фото объекта — мы рассчитаем стоимость и согласуем её с вами до выезда. Если объект соответствует фото и описанию, сумма на месте не меняется.</p>
+
+    <div class="hero-grid">
+      <div class="hero-card"><b>После ремонта — от 180 ₽/м²</b><span class="muted">Подготовим квартиру или коммерческое помещение к заселению или открытию: строительная пыль, поверхности, санузлы, финальная приёмка.</span></div>
+      <div class="hero-card"><b>Для бизнеса — от 4 500 ₽ за выезд</b><span class="muted">Регулярная уборка офисов, студий, салонов и клиник 50–300 м² без найма своей уборщицы. Фиксированный график, замена исполнителя.</span></div>
+    </div>
+
+    <ul class="promises">
+      <li><b>Стоимость до начала работ.</b> Все доплаты опубликованы ниже, и дополнительные работы — только с вашего согласия.</li>
+      <li><b>Работаем по чек-листу</b> и принимаем работу вместе с вами по тому же списку.</li>
+      <li><b>24 часа на замечания</b> — бесплатно устраним всё, что входит в согласованный чек-лист.</li>
+    </ul>
+
+    <div class="btns">
+      <a class="btn" href="#calc" data-pick="renovation">Рассчитать уборку после ремонта</a>
+      <a class="btn ghost" href="#calc" data-pick="office">Рассчитать регулярный клининг</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2–3. ВЫБОР УСЛУГИ И ЧТО ВХОДИТ -->
+<section id="services">
+  <div class="wrap">
+    <h2>Выберите услугу</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-renovation" aria-controls="panel-renovation" aria-selected="true">После ремонта</button>
+      <button class="tab" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="false">Для бизнеса</button>
+    </div>
+
+    <div class="panel" id="panel-renovation" role="tabpanel" aria-labelledby="tab-renovation">
+      <p class="lead">Для собственников, дизайнеров, прорабов и ремонтных компаний. Сдаёте объект заказчику или заезжаете сами — в чистое помещение, а не после «уборки бригадой».</p>
+      <div class="cols">
+        <div class="card">
+          <h3>Во всех помещениях</h3>
+          <ul>
+            <li>удаление строительной пыли с доступных поверхностей, в том числе вертикальных</li>
+            <li>влажная уборка полов, очистка плинтусов</li>
+            <li>двери и дверные коробки</li>
+            <li>выключатели и розетки снаружи</li>
+            <li>подоконники</li>
+            <li>мебель снаружи, если уже установлена</li>
+            <li>лёгкие следы стройматериалов — если это безопасно для покрытия</li>
+            <li>сбор и вынос бытового мусора</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Кухня</h3>
+          <ul>
+            <li>фасады снаружи</li>
+            <li>столешница и фартук</li>
+            <li>раковина и смеситель</li>
+            <li>бытовая техника снаружи</li>
+            <li>все доступные поверхности от пыли</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Санузел</h3>
+          <ul>
+            <li>сантехника, душевая или ванна</li>
+            <li>зеркала и смесители</li>
+            <li>плитка в доступных местах</li>
+            <li>шкафы снаружи</li>
+            <li>пол</li>
+          </ul>
+        </div>
+      </div>
+      <details class="card" style="margin-top:16px">
+        <summary>Что не входит в базовую стоимость</summary>
+        <ul>
+          <li>вывоз строительного мусора, мешков, остатков материалов</li>
+          <li>промышленное удаление цемента, затирки, монтажной пены, краски, клея; демонтаж загрязнений инструментом</li>
+          <li>мойка окон и остекления, удаление защитной плёнки с окон, мебели и техники</li>
+          <li>мойка внутри шкафов, ящиков, гардеробных и бытовой техники</li>
+          <li>химчистка мебели и ковров</li>
+          <li>работы выше стандартной стремянки, люстры сложной конструкции, фасады здания</li>
+          <li>перемещение тяжёлой мебели</li>
+          <li>объекты после масштабных работ с большим количеством строительного мусора</li>
+        </ul>
+        <p class="small muted" style="margin:10px 0 0">Большую часть этого можно заказать отдельно — цены в блоке «Доплаты».</p>
+      </details>
+      <p style="margin-top:16px"><b>Сроки:</b> большинство объектов до 100 м² убираем за 1 рабочий день.</p>
+    </div>
+
+    <div class="panel" id="panel-office" role="tabpanel" aria-labelledby="tab-office" hidden>
+      <p class="lead">Офисы, студии, шоурумы, салоны, небольшие клиники, агентства и учебные пространства 50–300 м². Вы не думаете, выйдет ли уборщица, — вы знаете, когда приедут и сколько это стоит.</p>
+      <div class="cols">
+        <div class="card">
+          <h3>Каждый выезд</h3>
+          <ul>
+            <li>уборка полов</li>
+            <li>пыль с доступных поверхностей</li>
+            <li>столы и рабочие поверхности — без перемещения личных вещей</li>
+            <li>дверные ручки, локально стеклянные поверхности</li>
+            <li>кухня и раковина</li>
+            <li>санузлы и зеркала</li>
+            <li>вынос мусора и замена пакетов</li>
+            <li>финальная проверка порядка</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Что вы получаете</h3>
+          <ul>
+            <li><b>Фиксированный график</b> — до начала рабочего дня, после его окончания или в удобные часы</li>
+            <li><b>Замена исполнителя</b>, если закреплённый сотрудник не может выйти</li>
+            <li><b>Контроль качества</b> по чек-листу после уборок</li>
+            <li>договор, закрывающие документы, оплата по безналу</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Если у вас уже есть уборщица</h3>
+          <p>Подменим её на время отпуска или больничного и сделаем генеральную уборку, на которую у штатного сотрудника не хватает времени.</p>
+          <a href="#calc" data-pick="office">Обсудить подмену →</a>
+        </div>
+      </div>
+      <details class="card" style="margin-top:16px">
+        <summary>Что не входит в регулярную уборку</summary>
+        <ul>
+          <li>генеральная уборка и уборка после ремонта (заказываются отдельно)</li>
+          <li>мойка всех окон, фасадов, химчистка</li>
+          <li>удаление сложных пятен</li>
+          <li>промышленное оборудование, складские и производственные загрязнения</li>
+          <li>уборка после мероприятий</li>
+          <li>расходники клиента (бумага, мыло и т. п.) — если не договорились отдельно</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ФОТО ДО/ПОСЛЕ — заменить на свои -->
+<section class="soft" id="works">
+  <div class="wrap">
+    <h2>Наши объекты: до и после</h2>
+    <p class="muted">Только наши фотографии, без стока.</p>
+    <div class="photos" data-photos>
+      <div class="photo-slot">Фото «до»</div>
+      <div class="photo-slot">Фото «после»</div>
+      <div class="photo-slot">Фото «до»</div>
+      <div class="photo-slot">Фото «после»</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ЦЕНА -->
+<section id="price">
+  <div class="wrap">
+    <h2>Цена</h2>
+    <div class="prices">
+      <div class="card">
+        <h3>После ремонта</h3>
+        <div class="price">от 180 ₽<small>/м²</small></div>
+        <p class="muted">Минимальный заказ — 5 000 ₽.<br>Сильно загрязнённые объекты — от 220–250 ₽/м².</p>
+      </div>
+      <div class="card">
+        <h3>Регулярный клининг бизнеса</h3>
+        <div class="price">от 4 500 ₽<small> за выезд</small></div>
+        <p class="muted">Или от 30–45 ₽/м² при регулярном графике.<br>Итог зависит от площади, частоты уборки, количества санузлов и рабочих мест, а также состояния помещения.</p>
+      </div>
+    </div>
+
+    <div class="cols" style="margin-top:16px;grid-template-columns:1fr">
+      <div class="card">
+        <h3>Доплаты — все заранее</h3>
+        <table class="addons">
+          <tr><td>Окна</td><td>от 300–500 ₽ за створку</td></tr>
+          <tr><td>Внутри шкафов</td><td>от 1 000–3 000 ₽</td></tr>
+          <tr><td>Холодильник внутри</td><td>от 800–1 500 ₽</td></tr>
+          <tr><td>Духовка</td><td>от 1 000–1 500 ₽</td></tr>
+          <tr><td>Химчистка мягкой мебели</td><td>по расчёту</td></tr>
+          <tr><td>Сложные строительные загрязнения</td><td>после фото/осмотра</td></tr>
+          <tr><td>Вынос строительного мусора</td><td>отдельно</td></tr>
+          <tr><td>Срочный выезд день-в-день</td><td>+20–30%</td></tr>
+          <tr><td>Ночной выезд</td><td>+20–30%</td></tr>
+          <tr><td>Без лифта / сложный доступ</td><td>по согласованию</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Как считаем стоимость</h3>
+      <p>Стоимость рассчитывается до начала работ. Для точного расчёта попросим: город, тип объекта, площадь, фотографии, вид уборки, желаемую дату, есть ли окна и сложные загрязнения. После этого вы получаете <b>фиксированную предварительную стоимость письменно</b>.</p>
+      <p class="note" style="margin:0">Если фактическое состояние объекта существенно отличается от фото и описания, дополнительные работы согласовываются с вами до начала их выполнения.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. КАК РАБОТАЕМ -->
+<section class="soft" id="how">
+  <div class="wrap">
+    <h2>Как работаем</h2>
+    <ol class="steps">
+      <li><b>Заявка</b>Форма, телефон или мессенджер — отвечаем в течение 15 минут.</li>
+      <li><b>Фото</b>Присылаете фото или видео объекта.</li>
+      <li><b>Расчёт</b>Присылаем фиксированную стоимость и состав работ письменно.</li>
+      <li><b>Согласование</b>Дата, время, контакт исполнителя. Напомним накануне.</li>
+      <li><b>Уборка</b>Фиксируем состояние дорогих поверхностей до начала, работаем по чек-листу.</li>
+      <li><b>Контроль</b>Принимаете работу по тому же чек-листу, получаете фотоотчёт.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. ГАРАНТИЯ -->
+<section id="guarantee">
+  <div class="wrap">
+    <h2>Гарантия</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>24 часа на замечания</h3>
+        <p style="margin:0">Если после уборки вы обнаружили недочёты, сообщите нам в течение 24 часов. Мы бесплатно устраним замечания, относящиеся к согласованному чек-листу работ.</p>
+      </div>
+      <div class="card">
+        <h3>Бережно к отделке</h3>
+        <p style="margin:0">До начала уборки фотографируем дорогие поверхности, сколы, трещины, царапины и технику. Работаем только средствами, подходящими для конкретных материалов. Если имущество повреждено по нашей вине, разбираем ситуацию и компенсируем подтверждённый ущерб в порядке, предусмотренном договором.</p>
+      </div>
+      <div class="card">
+        <h3>Что нужно от вас</h3>
+        <ul>
+          <li>доступ к объекту, вода и электричество</li>
+          <li>сообщить о деликатных поверхностях и проблемных зонах, приложить рекомендации производителя по уходу</li>
+          <li>убрать документы, деньги и ценные вещи</li>
+          <li>возможность вынести бытовой мусор</li>
+          <li>пропуск и парковка, если объект в закрытом ЖК или БЦ</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:14px">Мы не несём ответственность за скрытые дефекты, старые повреждения и последствия ранее применённых несовместимых химических средств.</p>
+  </div>
+</section>
+
+<!-- 7. ФОРМА РАСЧЁТА -->
+<section class="soft" id="calc">
+  <div class="wrap">
+    <h2>Рассчитать стоимость</h2>
+    <p class="lead">Оставьте заявку с фото — пришлём фиксированную стоимость. Ориентир видно сразу.</p>
+    <div class="form-wrap">
+      <form id="lead" class="card" novalidate>
+        <div class="row">
+          <label>Тип уборки
+            <select name="type" id="f-type" required>
+              <option value="renovation">Уборка после ремонта</option>
+              <option value="office">Регулярная уборка бизнеса</option>
+            </select>
+          </label>
+          <div class="row two">
+            <label>Город
+              <select name="city" required>
+                <option>Санкт-Петербург</option>
+                <option>Екатеринбург</option>
+                <option>Казань</option>
+              </select>
+            </label>
+            <label>Площадь, м²
+              <input name="area" id="f-area" type="number" inputmode="numeric" min="10" max="5000" placeholder="например, 65" required>
+            </label>
+          </div>
+          <div class="row two" data-only="renovation">
+            <label>Состояние
+              <select name="condition" id="f-condition">
+                <option value="normal">Обычное после ремонта</option>
+                <option value="heavy">Сильно загрязнено</option>
+              </select>
+            </label>
+            <label>Створок окон <span class="opt">(если мыть)</span>
+              <input name="windows" id="f-windows" type="number" inputmode="numeric" min="0" max="200" placeholder="0">
+            </label>
+          </div>
+          <div class="row two">
+            <label>Желаемая дата <span class="opt">(необязательно)</span>
+              <input name="date" type="date">
+            </label>
+            <label>Имя
+              <input name="name" autocomplete="name" required>
+            </label>
+          </div>
+          <label>Телефон
+            <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required>
+          </label>
+          <label>Комментарий <span class="opt">(необязательно)</span>
+            <textarea name="comment" placeholder="Санузлы, материалы (камень, шпон), плёнка на окнах, пропуск в ЖК…"></textarea>
+          </label>
+          <label>Фото объекта <span class="opt">(до 5 фото — так расчёт будет точным)</span>
+            <input name="photos" id="f-photos" type="file" accept="image/*" multiple>
+            <span class="thumbs" id="thumbs"></span>
+          </label>
+          <div class="hp" aria-hidden="true"><label>Сайт <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="check"><input type="checkbox" name="consent" required> <span>Согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span></label>
+          <button class="btn" type="submit" id="submit">Получить расчёт</button>
+        </div>
+        <div id="form-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <aside class="card estimate" aria-live="polite">
+        <h3>Ориентировочно</h3>
+        <div class="price" id="est-price">—</div>
+        <p class="muted small" id="est-note">Укажите площадь — покажем ориентир.</p>
+        <p class="small" style="margin:0">Фиксированную стоимость пришлём после фото. Если объект соответствует фото и описанию, на месте она не меняется.</p>
+        <div class="btns" style="margin:16px 0 0">
+          <a class="btn ghost" data-contact="telegram" href="#" hidden>Написать в Telegram</a>
+          <a class="btn ghost" data-contact="whatsapp" href="#" hidden>Написать в WhatsApp</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ВОЗРАЖЕНИЯ -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details class="card"><summary>Цена на месте вырастет?</summary><p>Нет, если объект соответствует фото и описанию. Стоимость согласуем письменно до выезда. Если на месте обнаружится то, чего не было на фото, дополнительные работы — только с вашего согласия и до их начала.</p></details>
+      <details class="card"><summary>Строители же уберут после себя?</summary><p>Бригада убирает, чтобы вы приняли работы. Строительная пыль оседает на всех поверхностях ещё несколько дней, и жить после такой уборки нельзя. Мы убираем так, чтобы можно было заехать.</p></details>
+      <details class="card"><summary>Почему не 60 ₽/м², как у некоторых?</summary><p>Низкая цена на сайте часто означает, что итог назовут уже на объекте. У нас в стоимость входит весь чек-лист выше, а все доплаты опубликованы заранее.</p></details>
+      <details class="card"><summary>У меня дорогие материалы: камень, кварц, шпон</summary><p>Напишите о них в заявке и приложите рекомендации производителя, если они есть. До начала работ фиксируем состояние поверхностей и подбираем средства под материал.</p></details>
+      <details class="card"><summary>Для офиса: что, если сотрудник заболеет?</summary><p>Пришлём замену, график не сорвётся. Условия замены прописываем в договоре.</p></details>
+      <details class="card"><summary>Работаете с юрлицами?</summary><p>Да: договор, закрывающие документы каждый месяц, оплата по безналу.</p></details>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>Дизайнерам, прорабам и ремонтным компаниям</h3>
+      <p>Финальная уборка перед сдачей объекта: к нужной дате, без отвлечения ваших людей, с фотоотчётом. Для постоянных партнёров — приоритетные слоты и вознаграждение за рекомендацию.</p>
+      <a class="btn ghost" href="#calc" data-pick="renovation">Обсудить сотрудничество</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b data-brand>Название компании</b> — клининг в Санкт-Петербурге, Екатеринбурге и Казани.</p>
+    <p data-legal>ИП / ООО, ИНН — заполнить</p>
+    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Быстрые действия">
+  <a class="btn" href="#calc">Рассчитать</a>
+  <a class="btn ghost" data-contact="phone" href="#" hidden>Позвонить</a>
+  <a class="btn ghost" data-contact="telegram" href="#" hidden>Telegram</a>
+</nav>
+
+<script>
+/* ===== НАСТРОЙКИ — заполните перед публикацией ===== */
+const CONFIG = {
+  brand: "Название компании",
+  legal: "ИП / ООО, ИНН — заполнить",
+  phone: "",            // "+7 900 000-00-00"
+  telegram: "",         // username без @, например "cleaning_spb"
+  whatsapp: "",         // номер только цифрами, например "79000000000"
+  endpoint: "",         // URL веб-приложения Google Apps Script (см. README)
+  photos: []            // ["img/before-1.jpg", "img/after-1.jpg", ...]
+};
+/* ================================================== */
+
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  // бренд и контакты
+  $$("[data-brand]").forEach(el => el.textContent = CONFIG.brand);
+  $$("[data-legal]").forEach(el => el.textContent = CONFIG.legal);
+  const links = {
+    phone: CONFIG.phone && "tel:" + CONFIG.phone.replace(/[^\d+]/g, ""),
+    telegram: CONFIG.telegram && "https://t.me/" + CONFIG.telegram.replace(/^@/, ""),
+    whatsapp: CONFIG.whatsapp && "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, "")
+  };
+  $$("[data-contact]").forEach(el => {
+    const kind = el.dataset.contact, href = links[kind];
+    if (!href) return;
+    el.href = href; el.hidden = false;
+    if (kind !== "phone") el.target = "_blank";
+    if (kind === "phone" && !el.textContent.trim()) el.textContent = CONFIG.phone;
+  });
+  if (CONFIG.photos.length) {
+    $("[data-photos]").innerHTML = CONFIG.photos
+      .map(src => `<div class="photo-slot"><img src="${src}" alt="Объект до и после уборки" loading="lazy"></div>`).join("");
+  }
+
+  // вкладки услуг
+  const tabs = $$(".tab");
+  function selectTab(kind){
+    tabs.forEach(t => {
+      const on = t.id === "tab-" + kind;
+      t.setAttribute("aria-selected", on);
+      $("#" + t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(t => t.addEventListener("click", () => {
+    const kind = t.id.replace("tab-", "");
+    selectTab(kind); setType(kind);
+  }));
+
+  // калькулятор
+  const type = $("#f-type"), area = $("#f-area"), cond = $("#f-condition"), win = $("#f-windows");
+  const fmt = n => (Math.round(n / 100) * 100).toLocaleString("ru-RU");
+  function setType(kind){
+    type.value = kind;
+    $$("[data-only]").forEach(el => el.hidden = el.dataset.only !== kind);
+    estimate();
+  }
+  function estimate(){
+    const a = parseFloat(area.value);
+    const out = $("#est-price"), note = $("#est-note");
+    if (!a || a < 10) { out.textContent = "—"; note.textContent = "Укажите площадь — покажем ориентир."; return; }
+    if (type.value === "renovation") {
+      const heavy = cond.value === "heavy";
+      const lo = Math.max(5000, a * (heavy ? 220 : 180));
+      const hi = heavy ? Math.max(5000, a * 250) : null;
+      const w = parseInt(win.value, 10) || 0;
+      out.textContent = "от " + fmt(lo) + " ₽";
+      let t = heavy ? `${fmt(lo)}–${fmt(hi)} ₽ за уборку (220–250 ₽/м²).` : "180 ₽/м², минимальный заказ 5 000 ₽.";
+      if (w) t += ` Окна: ещё ${fmt(w * 300)}–${fmt(w * 500)} ₽ за ${w} створ${w % 10 === 1 && w % 100 !== 11 ? "ку" : (w % 10 >= 2 && w % 10 <= 4 && (w % 100 < 12 || w % 100 > 14) ? "ки" : "ок")}.`;
+      t += a <= 100 ? " Обычно — за 1 рабочий день." : "";
+      note.textContent = t;
+    } else {
+      const lo = Math.max(4500, a * 30), hi = Math.max(4500, a * 45);
+      out.textContent = "от " + fmt(lo) + " ₽";
+      note.textContent = (lo === hi ? `${fmt(lo)} ₽` : `${fmt(lo)}–${fmt(hi)} ₽`) + " за выезд. Точнее — после фото: зависит от частоты, санузлов и рабочих мест.";
+    }
+  }
+  [type, area, cond, win].forEach(el => el.addEventListener("input", estimate));
+  type.addEventListener("change", () => { selectTab(type.value); setType(type.value); });
+  $$("[data-pick]").forEach(a => a.addEventListener("click", () => { selectTab(a.dataset.pick); setType(a.dataset.pick); }));
+  setType("renovation");
+
+  // фото: превью и сжатие
+  const photosInput = $("#f-photos");
+  photosInput.addEventListener("change", () => {
+    const files = [...photosInput.files].slice(0, 5);
+    $("#thumbs").innerHTML = "";
+    files.forEach(f => { const i = new Image(); i.src = URL.createObjectURL(f); i.alt = ""; $("#thumbs").appendChild(i); });
+  });
+  function compress(file){
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const max = 1600, k = Math.min(1, max / Math.max(img.width, img.height));
+        const c = document.createElement("canvas");
+        c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        resolve({ name: file.name.replace(/\.\w+$/, "") + ".jpg", type: "image/jpeg", data: c.toDataURL("image/jpeg", 0.8).split(",")[1] });
+        URL.revokeObjectURL(img.src);
+      };
+      img.onerror = () => resolve(null);
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
+  // UTM для понимания, какая реклама приводит заявки
+  const params = new URLSearchParams(location.search);
+  const utm = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","yclid"].forEach(k => { if (params.get(k)) utm[k] = params.get(k); });
+  const startedAt = Date.now();
+
+  // отправка
+  const form = $("#lead"), msg = $("#form-msg"), btn = $("#submit");
+  function show(kind, html){ msg.className = "form-msg " + kind; msg.innerHTML = html; }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const phoneDigits = (fd.get("phone") || "").replace(/\D/g, "");
+    if (!fd.get("name").trim()) return show("err", "Укажите имя."), form.elements.name.focus();
+    if (phoneDigits.length < 10) return show("err", "Проверьте номер телефона."), form.elements.phone.focus();
+    if (!fd.get("area")) return show("err", "Укажите площадь — хотя бы примерно."), form.elements.area.focus();
+    if (!fd.get("consent")) return show("err", "Нужно согласие на обработку данных.");
+    if (fd.get("website") || Date.now() - startedAt < 3000) return; // бот
+
+    btn.disabled = true; btn.textContent = "Отправляем…";
+    const photos = (await Promise.all([...photosInput.files].slice(0, 5).map(compress))).filter(Boolean);
+    const payload = {
+      type: type.value === "renovation" ? "После ремонта" : "Регулярная уборка бизнеса",
+      city: fd.get("city"), area: fd.get("area"),
+      condition: type.value === "renovation" ? (cond.value === "heavy" ? "Сильно загрязнено" : "Обычное") : "",
+      windows: type.value === "renovation" ? (fd.get("windows") || "") : "",
+      date: fd.get("date") || "", name: fd.get("name").trim(), phone: fd.get("phone").trim(),
+      comment: fd.get("comment") || "", estimate: $("#est-price").textContent,
+      page: location.href.split("?")[0], utm, photos
+    };
+
+    try {
+      if (!CONFIG.endpoint) throw new Error("endpoint not configured");
+      const r = await fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+      const res = await r.json().catch(() => ({}));
+      if (!r.ok || res.ok === false) throw new Error(res.error || r.status);
+      form.reset(); $("#thumbs").innerHTML = ""; setType("renovation");
+      show("ok", "<b>Спасибо! Мы получили заявку.</b><br>Свяжемся с вами в течение 15 минут для расчёта стоимости.");
+      if (window.ym && window.YM_ID) ym(window.YM_ID, "reachGoal", "lead");
+    } catch (err) {
+      const alt = links.telegram ? ` или напишите нам в <a href="${links.telegram}" target="_blank">Telegram</a>` : "";
+      const tel = links.phone ? ` Позвоните: <a href="${links.phone}">${CONFIG.phone}</a>.` : "";
+      show("err", `Не удалось отправить заявку. Попробуйте ещё раз${alt}.${tel}`);
+    } finally {
+      btn.disabled = false; btn.textContent = "Получить расчёт";
+    }
+  });
+})();
+</script>
+</body>
+</html>
