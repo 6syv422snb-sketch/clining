@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Уборка после ремонта и клининг офисов — СПб, Екатеринбург, Казань</title>
+<title>ФиксКлин — уборка после ремонта и клининг офисов в СПб, Екатеринбурге и Казани</title>
 <meta name="description" content="Уборка квартир после ремонта от 180 ₽/м² и регулярный клининг офисов 50–300 м². Стоимость фиксируем до начала работ, работаем по чек-листу, 24 часа на замечания.">
 <meta name="theme-color" content="#0f5c4d">
 <style>
@@ -128,7 +128,7 @@ footer a{color:#dfeee9}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#" data-brand>Название компании</a>
+    <a class="logo" href="#" data-brand>ФиксКлин</a>
     <div class="top-contacts">
       <a data-contact="phone" href="#" hidden></a>
       <a data-contact="telegram" href="#" hidden aria-label="Telegram">Telegram</a>
@@ -328,7 +328,7 @@ footer a{color:#dfeee9}
   <div class="wrap">
     <h2>Как работаем</h2>
     <ol class="steps">
-      <li><b>Заявка</b>Форма, телефон или мессенджер — отвечаем в течение 15 минут.</li>
+      <li><b>Заявка</b>Оставляете заявку на сайте — перезваниваем в течение 15 минут.</li>
       <li><b>Фото</b>Присылаете фото или видео объекта.</li>
       <li><b>Расчёт</b>Присылаем фиксированную стоимость и состав работ письменно.</li>
       <li><b>Согласование</b>Дата, время, контакт исполнителя. Напомним накануне.</li>
@@ -466,8 +466,8 @@ footer a{color:#dfeee9}
 
 <footer>
   <div class="wrap">
-    <p><b data-brand>Название компании</b> — клининг в Санкт-Петербурге, Екатеринбурге и Казани.</p>
-    <p data-legal>ИП / ООО, ИНН — заполнить</p>
+    <p><b data-brand>ФиксКлин</b> — клининг в Санкт-Петербурге, Екатеринбурге и Казани.</p>
+    <p data-legal hidden></p>
     <p><a href="privacy.html">Политика конфиденциальности</a></p>
   </div>
 </footer>
@@ -481,9 +481,9 @@ footer a{color:#dfeee9}
 <script>
 /* ===== НАСТРОЙКИ — заполните перед публикацией ===== */
 const CONFIG = {
-  brand: "Название компании",
-  legal: "ИП / ООО, ИНН — заполнить",
-  phone: "",            // "+7 900 000-00-00"
+  brand: "ФиксКлин",
+  legal: "",            // "ИП Иванов И. И., ИНН …" — строка в подвале появится, когда заполните
+  phone: "",            // пусто: контакт только через заявку
   telegram: "",         // username без @, например "cleaning_spb"
   whatsapp: "",         // номер только цифрами, например "79000000000"
   endpoint: "",         // URL веб-приложения Google Apps Script (см. README)
@@ -497,7 +497,7 @@ const CONFIG = {
 
   // бренд и контакты
   $$("[data-brand]").forEach(el => el.textContent = CONFIG.brand);
-  $$("[data-legal]").forEach(el => el.textContent = CONFIG.legal);
+  $$("[data-legal]").forEach(el => { el.textContent = CONFIG.legal; el.hidden = !CONFIG.legal; });
   const links = {
     phone: CONFIG.phone && "tel:" + CONFIG.phone.replace(/[^\d+]/g, ""),
     telegram: CONFIG.telegram && "https://t.me/" + CONFIG.telegram.replace(/^@/, ""),
