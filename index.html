@@ -102,7 +102,8 @@ input,select,textarea{display:block;width:100%;margin-top:6px;min-height:50px;pa
 textarea{min-height:90px;resize:vertical}
 .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--muted)}
 .check input{width:22px;min-height:22px;height:22px;margin:2px 0 0;flex:none}
-.estimate{position:sticky;top:76px}
+.estimate{order:-1}
+@media(min-width:900px){.estimate{order:0;position:sticky;top:76px}}
 .estimate .price{font-size:30px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-msg{border-radius:12px;padding:16px;margin-top:14px}
