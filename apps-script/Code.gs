@@ -90,9 +90,28 @@ function json(o) {
   return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
 }
 
-/** Запустите вручную один раз из редактора, чтобы проверить Telegram и выдать разрешения. */
+/** Запустите вручную из редактора: проверит настройки и Telegram, результат — в «Журнале выполнения». */
 function testNotify() {
-  notify(PropertiesService.getScriptProperties(), {
-    type: 'Тест', city: 'Санкт-Петербург', area: 60, name: 'Проверка', phone: '+7 000 000-00-00', estimate: 'от 10 800 ₽'
-  }, []);
+  const props = PropertiesService.getScriptProperties();
+  const token = (props.getProperty('TELEGRAM_TOKEN') || '').trim();
+  const chat = (props.getProperty('TELEGRAM_CHAT') || '').trim();
+  const sheetId = (props.getProperty('SHEET_ID') || '').trim();
+  console.log('Свойства скрипта: ' + JSON.stringify(props.getKeys()));
+  console.log('TELEGRAM_TOKEN: ' + (token ? 'есть, начинается с ' + token.split(':')[0] : 'НЕТ'));
+  console.log('TELEGRAM_CHAT: ' + (chat || 'НЕТ'));
+  console.log('SHEET_ID: ' + (sheetId || 'НЕТ'));
+  if (!token || !chat) return console.log('Не хватает TELEGRAM_TOKEN или TELEGRAM_CHAT — проверьте названия свойств.');
+
+  const me = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/getMe', { muteHttpExceptions: true });
+  console.log('Проверка токена: ' + me.getContentText());
+  const r = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+    method: 'post', muteHttpExceptions: true,
+    payload: { chat_id: chat, text: '🧹 Тест: заявки ЧистоСпейс будут приходить сюда' }
+  });
+  console.log('Отправка сообщения: ' + r.getContentText());
+
+  if (sheetId) {
+    try { console.log('Таблица найдена: ' + SpreadsheetApp.openById(sheetId).getName()); }
+    catch (err) { console.log('Таблица НЕ открывается: ' + err); }
+  }
 }
