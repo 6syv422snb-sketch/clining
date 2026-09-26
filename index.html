@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ФиксКлин — уборка после ремонта и клининг офисов в СПб, Екатеринбурге и Казани</title>
+<title>ЧистоСпейс — уборка после ремонта и клининг офисов в СПб, Екатеринбурге и Казани</title>
 <meta name="description" content="Уборка квартир после ремонта от 180 ₽/м² и регулярный клининг офисов 50–300 м². Стоимость фиксируем до начала работ, работаем по чек-листу, 24 часа на замечания.">
 <meta name="theme-color" content="#0f5c4d">
 <style>
@@ -34,7 +34,9 @@ section.soft{background:var(--bg-soft)}
 /* header */
 header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
-.logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:17px}
+.logo{color:var(--ink);text-decoration:none;display:flex;flex-direction:column;line-height:1.15}
+.logo b{font-weight:800;font-size:18px}
+.logo small{font-size:12px;color:var(--muted);font-weight:500}
 .top-contacts{display:flex;gap:10px;align-items:center;font-size:15px}
 .top-contacts a{text-decoration:none;font-weight:600}
 
@@ -129,7 +131,7 @@ footer a{color:#dfeee9}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#" data-brand>ФиксКлин</a>
+    <a class="logo" href="#"><b data-brand>ЧистоСпейс</b><small>уборка с фиксированной ценой</small></a>
     <div class="top-contacts">
       <a data-contact="phone" href="#" hidden></a>
       <a data-contact="telegram" href="#" hidden aria-label="Telegram">Telegram</a>
@@ -467,7 +469,7 @@ footer a{color:#dfeee9}
 
 <footer>
   <div class="wrap">
-    <p><b data-brand>ФиксКлин</b> — клининг в Санкт-Петербурге, Екатеринбурге и Казани.</p>
+    <p><b data-brand>ЧистоСпейс</b> — уборка с фиксированной ценой в Санкт-Петербурге, Екатеринбурге и Казани.</p>
     <p data-legal hidden></p>
     <p><a href="privacy.html">Политика конфиденциальности</a></p>
   </div>
@@ -482,7 +484,7 @@ footer a{color:#dfeee9}
 <script>
 /* ===== НАСТРОЙКИ — заполните перед публикацией ===== */
 const CONFIG = {
-  brand: "ФиксКлин",
+  brand: "ЧистоСпейс",
   legal: "",            // "ИП Иванов И. И., ИНН …" — строка в подвале появится, когда заполните
   phone: "",            // пусто: контакт только через заявку
   telegram: "",         // username без @, например "cleaning_spb"
