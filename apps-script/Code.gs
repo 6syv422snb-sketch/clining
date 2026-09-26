@@ -68,7 +68,7 @@ function notify(props, d, photos) {
     '👤 ' + esc(d.name) + '\n📞 ' + esc(d.phone) + '\n' +
     (d.comment ? '💬 ' + esc(d.comment) + '\n' : '') +
     '💰 Ориентир: ' + esc(d.estimate) + utm +
-    '\n\n⏱ Перезвонить в течение 5 минут';
+    '\n\n⏱ Связаться в течение 5 минут';
   UrlFetchApp.fetch(api + 'sendMessage', {
     method: 'post', muteHttpExceptions: true,
     payload: { chat_id: chat, text: text, parse_mode: 'HTML' }
