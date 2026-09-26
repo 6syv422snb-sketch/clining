@@ -46,10 +46,19 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .hero-grid{display:grid;gap:12px;margin:20px 0 0}
 .hero-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px}
 .hero-card b{display:block;margin-bottom:2px}
-.promises{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
-.promises li{padding-left:30px;position:relative}
-.promises li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.2'/%3E%3C/svg%3E") center/16px no-repeat}
-@media(min-width:760px){.hero-grid{grid-template-columns:1fr 1fr}}
+.promises{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.promises li{display:flex;gap:12px;align-items:flex-start}
+.promises li > span:last-child{flex:1}
+@media(min-width:760px){.hero-grid{grid-template-columns:1fr 1fr}.promises{grid-template-columns:1fr 1fr}}
+.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico-badge{width:40px;height:40px;flex:none;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center}
+.ico-badge.soft{background:var(--accent);color:var(--brand)}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.card-head h3{margin:0}
+.hero-top{display:grid;gap:24px;align-items:center}
+.hero-art{display:none}
+@media(min-width:900px){.hero-top{grid-template-columns:1.15fr .85fr}.hero-art{display:block}}
+.hero-art svg{width:100%;height:auto;display:block}
 
 /* tabs */
 .tabs{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;margin:24px 0}
@@ -83,9 +92,10 @@ table.addons td:last-child{text-align:right;white-space:nowrap;font-weight:600;p
 /* steps */
 ol.steps{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px;counter-reset:s}
 @media(min-width:760px){ol.steps{grid-template-columns:repeat(3,1fr)}}
-ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 16px 60px;position:relative}
-ol.steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--brand);font-weight:800;display:grid;place-items:center}
+ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 16px 72px;position:relative;min-height:74px}
+ol.steps li .ico-badge{position:absolute;left:16px;top:16px}
 ol.steps b{display:block}
+ol.steps b::before{content:counter(s) ". ";color:var(--muted);font-weight:600}
 
 /* photos */
 .photos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
@@ -128,6 +138,24 @@ footer a{color:#dfeee9}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 10.5l1.5 1.5 3-3"/><path d="M8.5 16h7"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M11 3l1.8 5.2L18 10l-5.2 1.8L11 17l-1.8-5.2L4 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-pan" viewBox="0 0 24 24"><path d="M3 11h13v3a5 5 0 01-5 5H8a5 5 0 01-5-5z"/><path d="M16 12h5"/><path d="M8 4v3M11 4v3"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5z"/><path d="M6 12V6a2 2 0 014 0"/><path d="M7 19l-1 2M17 19l1 2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0114 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3-3"/><path d="M20 16H6l3 3"/></symbol>
+  <symbol id="i-office" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></symbol>
+</svg>
 
 <header class="top">
   <div class="wrap">
@@ -143,9 +171,38 @@ footer a{color:#dfeee9}
 <!-- 1. ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
   <div class="wrap">
+    <div class="hero-top">
+    <div>
     <span class="cities">Санкт-Петербург • Екатеринбург • Казань</span>
     <h1 id="hero-title">Уборка после ремонта и регулярный клининг бизнеса — цена фиксируется до начала работ</h1>
     <p class="lead" id="hero-lead">Пришлите фото объекта — мы рассчитаем стоимость и согласуем её с вами до выезда. Если объект соответствует фото и описанию, сумма на месте не меняется.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="420" height="380" rx="28" fill="#ffffff" stroke="#dde6e2"/>
+        <path d="M10 270h420v92a28 28 0 0 1-28 28H38a28 28 0 0 1-28-28z" fill="#e6f0ec"/>
+        <rect x="150" y="46" width="170" height="180" rx="8" fill="#e8f3ef" stroke="#0f5c4d" stroke-width="4"/>
+        <path d="M235 46v180M150 136h170" stroke="#0f5c4d" stroke-width="4"/>
+        <path d="M150 226 90 270h300l-70-44z" fill="#fff8e6"/>
+        <path d="M150 292h80M270 300h40M110 380h50" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+        <rect x="52" y="222" width="44" height="48" rx="6" fill="#0f5c4d"/>
+        <path d="M74 222c-18-30-10-60 0-72 10 12 18 42 0 72zM74 222c-30-10-38-34-36-48 16 2 34 20 36 48zM74 222c28-8 38-30 38-44-16 0-34 16-38 44z" fill="#7cc4b2"/>
+        <path d="M372 70l5 14 14 5-14 5-5 14-5-14-14-5 14-5z" fill="#7cc4b2"/>
+        <path d="M110 70l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#7cc4b2"/>
+        <path d="M362 196l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#0f5c4d" opacity=".6"/>
+        <rect x="222" y="252" width="190" height="112" rx="16" fill="#ffffff" stroke="#dde6e2"/>
+        <text x="240" y="282" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="14" fill="#5b6b66">Расчёт по фото</text>
+        <text x="240" y="310" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="20" font-weight="800" fill="#0f5c4d">Цена согласована</text>
+        <rect x="240" y="326" width="112" height="24" rx="12" fill="#e8f3ef"/>
+        <path d="M252 338l5 5 9-9" fill="none" stroke="#0f5c4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="274" y="343" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="13" font-weight="700" fill="#0f5c4d">до выезда</text>
+        <rect x="30" y="296" width="176" height="76" rx="16" fill="#ffffff" stroke="#dde6e2"/>
+        <text x="48" y="322" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="14" fill="#5b6b66">Приёмка по чек-листу</text>
+        <rect x="48" y="334" width="140" height="10" rx="5" fill="#0f5c4d"/>
+        <text x="48" y="362" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="12" font-weight="700" fill="#0f5c4d">все пункты выполнены</text>
+      </svg>
+    </div>
+    </div>
 
     <div class="hero-grid">
       <div class="hero-card"><b>После ремонта — от 180 ₽/м²</b><span class="muted">Подготовим квартиру или коммерческое помещение к заселению или открытию: строительная пыль, поверхности, санузлы, финальная приёмка.</span></div>
@@ -153,9 +210,10 @@ footer a{color:#dfeee9}
     </div>
 
     <ul class="promises">
-      <li><b>Стоимость до начала работ.</b> Все доплаты опубликованы ниже, и дополнительные работы — только с вашего согласия.</li>
-      <li><b>Работаем по чек-листу</b> и принимаем работу вместе с вами по тому же списку.</li>
-      <li><b>24 часа на замечания</b> — бесплатно устраним всё, что входит в согласованный чек-лист.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></span><span><b>Стоимость до начала работ.</b> Все доплаты опубликованы ниже, дополнительные работы — только с вашего согласия.</span></li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Работаем по чек-листу</b> и принимаем работу вместе с вами по тому же списку.</span></li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span><span><b>Бережно к отделке.</b> Фиксируем состояние дорогих поверхностей до начала и подбираем средства под материал.</span></li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-clock"/></svg></span><span><b>24 часа на замечания</b> — бесплатно устраним всё, что входит в согласованный чек-лист.</span></li>
     </ul>
 
     <div class="btns">
@@ -178,7 +236,7 @@ footer a{color:#dfeee9}
       <p class="lead">Для собственников, дизайнеров, прорабов и ремонтных компаний. Сдаёте объект заказчику или заезжаете сами — в чистое помещение, а не после «уборки бригадой».</p>
       <div class="cols">
         <div class="card">
-          <h3>Во всех помещениях</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-home"/></svg></span><h3>Во всех помещениях</h3></div>
           <ul>
             <li>удаление строительной пыли с доступных поверхностей, в том числе вертикальных</li>
             <li>влажная уборка полов, очистка плинтусов</li>
@@ -191,7 +249,7 @@ footer a{color:#dfeee9}
           </ul>
         </div>
         <div class="card">
-          <h3>Кухня</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-pan"/></svg></span><h3>Кухня</h3></div>
           <ul>
             <li>фасады снаружи</li>
             <li>столешница и фартук</li>
@@ -201,7 +259,7 @@ footer a{color:#dfeee9}
           </ul>
         </div>
         <div class="card">
-          <h3>Санузел</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-bath"/></svg></span><h3>Санузел</h3></div>
           <ul>
             <li>сантехника, душевая или ванна</li>
             <li>зеркала и смесители</li>
@@ -232,7 +290,7 @@ footer a{color:#dfeee9}
       <p class="lead">Офисы, студии, шоурумы, салоны, небольшие клиники, агентства и учебные пространства 50–300 м². Вы не думаете, выйдет ли уборщица, — вы знаете, когда приедут и сколько это стоит.</p>
       <div class="cols">
         <div class="card">
-          <h3>Каждый выезд</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-office"/></svg></span><h3>Каждый выезд</h3></div>
           <ul>
             <li>уборка полов</li>
             <li>пыль с доступных поверхностей</li>
@@ -245,7 +303,7 @@ footer a{color:#dfeee9}
           </ul>
         </div>
         <div class="card">
-          <h3>Что вы получаете</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-calendar"/></svg></span><h3>Что вы получаете</h3></div>
           <ul>
             <li><b>Фиксированный график</b> — до начала рабочего дня, после его окончания или в удобные часы</li>
             <li><b>Замена исполнителя</b>, если закреплённый сотрудник не может выйти</li>
@@ -254,7 +312,7 @@ footer a{color:#dfeee9}
           </ul>
         </div>
         <div class="card">
-          <h3>Если у вас уже есть уборщица</h3>
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-swap"/></svg></span><h3>Если у вас уже есть уборщица</h3></div>
           <p>Подменим её на время отпуска или больничного и сделаем генеральную уборку, на которую у штатного сотрудника не хватает времени.</p>
           <a href="#calc" data-pick="office">Обсудить подмену →</a>
         </div>
@@ -331,12 +389,12 @@ footer a{color:#dfeee9}
   <div class="wrap">
     <h2>Как работаем</h2>
     <ol class="steps">
-      <li><b>Заявка</b>Оставляете заявку на сайте — свяжемся с вами в течение 15 минут.</li>
-      <li><b>Фото</b>Присылаете фото или видео объекта.</li>
-      <li><b>Расчёт</b>Присылаем фиксированную стоимость и состав работ письменно.</li>
-      <li><b>Согласование</b>Дата, время, контакт исполнителя. Напомним накануне.</li>
-      <li><b>Уборка</b>Фиксируем состояние дорогих поверхностей до начала, работаем по чек-листу.</li>
-      <li><b>Контроль</b>Принимаете работу по тому же чек-листу, получаете фотоотчёт.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-msg"/></svg></span><b>Заявка</b>Оставляете заявку на сайте — свяжемся с вами в течение 15 минут.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-camera"/></svg></span><b>Фото</b>Присылаете фото или видео объекта.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></span><b>Расчёт</b>Присылаем фиксированную стоимость и состав работ письменно.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-calendar"/></svg></span><b>Согласование</b>Дата, время, контакт исполнителя. Напомним накануне.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-spark"/></svg></span><b>Уборка</b>Фиксируем состояние дорогих поверхностей до начала, работаем по чек-листу.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-eye"/></svg></span><b>Контроль</b>Принимаете работу по тому же чек-листу, получаете фотоотчёт.</li>
     </ol>
   </div>
 </section>
@@ -347,15 +405,15 @@ footer a{color:#dfeee9}
     <h2>Гарантия</h2>
     <div class="cols">
       <div class="card">
-        <h3>24 часа на замечания</h3>
+        <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-clock"/></svg></span><h3>24 часа на замечания</h3></div>
         <p style="margin:0">Если после уборки вы обнаружили недочёты, сообщите нам в течение 24 часов. Мы бесплатно устраним замечания, относящиеся к согласованному чек-листу работ.</p>
       </div>
       <div class="card">
-        <h3>Бережно к отделке</h3>
+        <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Бережно к отделке</h3></div>
         <p style="margin:0">До начала уборки фотографируем дорогие поверхности, сколы, трещины, царапины и технику. Работаем только средствами, подходящими для конкретных материалов. Если имущество повреждено по нашей вине, разбираем ситуацию и компенсируем подтверждённый ущерб в порядке, предусмотренном договором.</p>
       </div>
       <div class="card">
-        <h3>Что нужно от вас</h3>
+        <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-user"/></svg></span><h3>Что нужно от вас</h3></div>
         <ul>
           <li>доступ к объекту, вода и электричество</li>
           <li>сообщить о деликатных поверхностях и проблемных зонах, приложить рекомендации производителя по уходу</li>
