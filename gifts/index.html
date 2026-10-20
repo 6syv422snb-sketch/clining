@@ -6,7 +6,7 @@
 <title>Present Perfect</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Подарочный консьерж. Подберём подарок, который запомнят: придумаем, найдём, упакуем и доставим. Для близких, клиентов и партнёров.">
-<meta name="theme-color" content="#0d0908">
+<meta name="theme-color" content="#2a1a18">
 <meta property="og:title" content="Present Perfect — подарок, который запомнят">
 <meta property="og:description" content="Придумаем, найдём, упакуем и доставим. Для близких, клиентов и партнёров.">
 <meta property="og:image" content="img/hero.jpg">
@@ -16,9 +16,10 @@
 <style>
 /* Hotel-lobby night: near-black ground, photographs in narrow frames like the posts, ivory serif type, gold hairlines */
 :root{
-  --ground:#0d0908; --ground-2:#160f0d; --wine:#5a1622; --wine-deep:#2c0a10;
-  --ivory:#f1e7da; --ivory-muted:rgba(241,231,218,.66); --sand:#ecd9bb; --gold:#c6a46d;
-  --line:rgba(198,164,109,.28); --on-sand:#2a0d12;
+  --ground:#2a1a18; --ground-2:#36211f; --wine:#6e1f2c; --wine-deep:#46131b;
+  --ivory:#f6ede2; --ivory-muted:rgba(246,237,226,.8); --sand:#ecd9bb; --gold:#c6a46d;
+  --line:rgba(214,182,128,.34); --on-sand:#2a0d12;
+  --cream:#efe5d8; --cream-ink:#4a1720; --cream-muted:#7d5f60; --cream-line:rgba(110,31,44,.2);
   --serif:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   color-scheme:dark;
@@ -59,7 +60,7 @@ section{padding-block:80px}
 .divider svg{width:46px;height:25px;flex:none}
 
 /* header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(13,9,8,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,164,109,.14)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(42,26,24,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(198,164,109,.14)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo svg{width:36px;height:36px;flex:none}
@@ -74,8 +75,8 @@ nav.menu a:hover{color:var(--ivory)}
 .hero{position:relative;padding-block:96px 88px;overflow:hidden;isolation:isolate}
 .hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:44% 50%;z-index:-2}
 @media(max-width:600px){.hero > img{object-position:40% 50%}}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,9,8,.5) 0%,rgba(13,9,8,.38) 40%,rgba(13,9,8,.6) 70%,rgba(13,9,8,.96) 100%)}
-.hero h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(42,26,24,.45) 0%,rgba(42,26,24,.25) 40%,rgba(42,26,24,.5) 72%,rgba(42,26,24,.97) 100%)}
+.hero h1,.hero .lead,.hero .brand{text-shadow:0 1px 18px rgba(20,10,9,.85),0 0 4px rgba(20,10,9,.5)}
 .hero h1 em{display:block}
 .hero .lead{font-family:var(--serif);font-size:clamp(19px,3.6vw,24px);color:var(--ivory);line-height:1.4}
 @media(min-width:900px){.hero{padding-block:150px 130px}}
@@ -93,7 +94,7 @@ nav.menu a:hover{color:var(--ivory)}
 @media(min-width:760px){.posts{grid-template-columns:repeat(3,1fr)}}
 .post{position:relative;margin:0;border-radius:4px;overflow:hidden;background:var(--ground-2);aspect-ratio:4/5;max-width:100%}
 .post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.post::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,9,8,0) 35%,rgba(13,9,8,.9) 100%)}
+.post::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,26,24,0) 40%,rgba(42,26,24,.88) 100%)}
 .post figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px}
 .post h3{margin:0 0 6px}
 .post p{margin:0;color:var(--ivory-muted);font-size:15px}
@@ -157,7 +158,7 @@ nav.menu a:hover{color:var(--ivory)}
 /* final */
 .final{position:relative;isolation:isolate;overflow:hidden}
 .final > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;object-position:50% 40%}
-.final::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,9,8,.95),rgba(13,9,8,.7) 50%,rgba(13,9,8,.95))}
+.final::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(42,26,24,.92),rgba(42,26,24,.55) 50%,rgba(42,26,24,.92))}
 .word{font-family:var(--serif);font-style:italic;color:var(--sand)}
 .mono{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:48px;color:var(--gold)}
 .mono b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:44px;line-height:1;color:var(--sand);letter-spacing:-.06em}
@@ -168,10 +169,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 footer a{color:var(--sand)}
 
 /* sticky mobile cta */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(13,9,8,0),rgba(13,9,8,.94) 40%)}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(42,26,24,0),rgba(42,26,24,.94) 40%)}
 .sticky .btn{width:100%}
 @media(min-width:880px){.sticky{display:none}body{padding-bottom:0}}
 .alt{background:var(--ground-2)}
+/* cream section, as in the «Цены» story */
+.cream{background:var(--cream);color:var(--cream-ink)}
+.cream .brand{color:var(--cream-muted)}
+.cream h2 em{color:var(--wine)}
+.cream .price,.cream .row{border-color:var(--cream-line)}
+.cream .row .v{color:var(--wine)}
+.cream .row small,.cream .price-foot{color:var(--cream-muted)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
@@ -316,7 +324,7 @@ footer a{color:var(--sand)}
   </div>
 </section>
 
-<section class="alt" id="prices">
+<section class="cream" id="prices">
   <div class="wrap">
     <div class="c">
       <span class="brand">Present Perfect</span>
