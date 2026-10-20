@@ -167,6 +167,8 @@ nav.menu a:hover{color:var(--ivory)}
 footer{border-top:1px solid rgba(198,164,109,.14);color:var(--ivory-muted);padding-block:28px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
 footer a{color:var(--sand)}
+footer .legal{display:flex;flex-direction:column;gap:4px;min-width:0}
+footer .legal span{overflow-wrap:anywhere}
 
 /* sticky mobile cta */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(42,26,24,0),rgba(42,26,24,.94) 40%)}
@@ -377,8 +379,15 @@ footer a{color:var(--sand)}
 
 <footer>
   <div class="wrap">
-    <span>© <span data-year>2026</span> Present Perfect · подарочный консьерж</span>
-    <a data-tg href="https://t.me/present_perfect_gifts" target="_blank" rel="noopener">t.me/present_perfect_gifts</a>
+    <div class="legal">
+      <span>© <span data-year>2026</span> Present Perfect · подарочный консьерж</span>
+      <span>ИП Семенова Софья Вадимовна, ИНН 470611445055</span>
+      <span>sofya.semenova25@gmail.com</span>
+    </div>
+    <div class="legal">
+      <a data-tg href="https://t.me/present_perfect_gifts" target="_blank" rel="noopener">t.me/present_perfect_gifts</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
   </div>
 </footer>
 
