@@ -6,17 +6,21 @@
  *   TELEGRAM_CHAT   — id чата, куда слать заявки (ваш личный или группы)
  *   SHEET_ID        — id Google Таблицы (из адреса между /d/ и /edit)
  *   FOLDER_ID       — id папки Google Диска для фото (необязательно)
+ *   MANAGER_KEY     — пароль для панели менеджера manager.html (длинная случайная строка)
  *
  * Разверните как веб-приложение: Deploy → New deployment → Web app,
  * Execute as: Me, Who has access: Anyone. URL вставьте в CONFIG.endpoint в index.html.
  */
 
 const HEADERS = ['Дата', 'Тип', 'Город', 'Площадь, м²', 'Состояние', 'Створок окон',
-  'Желаемая дата', 'Имя', 'Телефон', 'Комментарий', 'Ориентир', 'Фото', 'UTM', 'Страница', 'Статус'];
+  'Желаемая дата', 'Имя', 'Телефон', 'Комментарий', 'Ориентир', 'Фото', 'UTM', 'Страница', 'Статус',
+  'Заметка', 'Сумма заказа'];
+const STATUS_COL = 15, NOTE_COL = 16, AMOUNT_COL = 17;
 
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
+    if (data.action) return manager(data);
     if (data.website) return json({ ok: true }); // бот
 
     const props = PropertiesService.getScriptProperties();
@@ -53,6 +57,69 @@ function doPost(e) {
     console.error(err);
     return json({ ok: false, error: String(err) });
   }
+}
+
+/** Панель менеджера: список заявок и смена статуса. Доступ — по MANAGER_KEY. */
+function manager(data) {
+  const key = (PropertiesService.getScriptProperties().getProperty('MANAGER_KEY') || '').trim();
+  if (!key) return json({ ok: false, error: 'MANAGER_KEY не задан в свойствах скрипта' });
+  if (String(data.key || '') !== key) {
+    Utilities.sleep(800);
+    return json({ ok: false, error: 'Неверный ключ', auth: false });
+  }
+  const sheet = SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty('SHEET_ID')).getSheets()[0];
+  ensureHeaders(sheet);
+
+  if (data.action === 'list') {
+    const last = sheet.getLastRow();
+    if (last < 2) return json({ ok: true, leads: [] });
+    const rows = sheet.getRange(2, 1, last - 1, HEADERS.length).getValues();
+    const leads = rows.map(function (r, i) {
+      let utm = {};
+      try { utm = JSON.parse(r[12] || '{}'); } catch (err) {}
+      return {
+        row: i + 2, date: r[0] instanceof Date ? r[0].toISOString() : String(r[0]),
+        type: r[1], city: r[2], area: r[3], condition: r[4], windows: r[5], wishDate: fmt(r[6]),
+        name: r[7], phone: String(r[8]).replace(/^'/, ''), comment: r[9], estimate: r[10],
+        photos: String(r[11] || ''), utm: utm, page: r[13],
+        status: r[14] || 'Новая', note: r[15], amount: r[16]
+      };
+    }).filter(function (l) { return l.date || l.phone; });
+    return json({ ok: true, leads: leads });
+  }
+
+  if (data.action === 'update') {
+    const lock = LockService.getScriptLock();
+    lock.waitLock(10000);
+    try {
+      const row = Number(data.row);
+      if (!(row >= 2 && row <= sheet.getLastRow())) return json({ ok: false, error: 'Нет такой строки' });
+      const d = sheet.getRange(row, 1).getValue();
+      const stamp = d instanceof Date ? d.toISOString() : String(d);
+      if (data.date && stamp !== data.date) {
+        return json({ ok: false, error: 'Таблица изменилась (сортировка или удаление строк). Обновите список.' });
+      }
+      if (data.status != null) sheet.getRange(row, STATUS_COL).setValue(String(data.status));
+      if (data.note != null) sheet.getRange(row, NOTE_COL).setValue(String(data.note));
+      if (data.amount != null) sheet.getRange(row, AMOUNT_COL).setValue(data.amount === '' ? '' : Number(data.amount) || '');
+      return json({ ok: true });
+    } finally {
+      lock.releaseLock();
+    }
+  }
+  return json({ ok: false, error: 'Неизвестное действие' });
+}
+
+function ensureHeaders(sheet) {
+  const width = sheet.getLastColumn();
+  if (sheet.getLastRow() === 0) return sheet.appendRow(HEADERS);
+  if (width < HEADERS.length) {
+    sheet.getRange(1, width + 1, 1, HEADERS.length - width).setValues([HEADERS.slice(width)]);
+  }
+}
+
+function fmt(v) {
+  return v instanceof Date ? Utilities.formatDate(v, 'Europe/Moscow', 'dd.MM.yyyy') : String(v || '');
 }
 
 function notify(props, d, photos) {

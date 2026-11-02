@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0f5c4d">
+<title>ЧистоСпейс — менеджер</title>
+<style>
+:root{
+  --bg:#f3f7f5; --card:#ffffff; --ink:#12201c; --muted:#5b6b66; --line:#dde6e2;
+  --brand:#0f5c4d; --accent:#e8f3ef; --warn:#8a4b0f; --warn-bg:#fff6ea; --bad:#a3262b; --bad-bg:#fdecec;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--brand)}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:10;background:var(--brand);color:#fff}
+header .wrap{display:flex;align-items:center;gap:12px;min-height:56px}
+header b{font-size:17px;font-weight:800}
+header small{opacity:.8}
+header .sp{flex:1}
+.hbtn{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:10px;min-height:38px;padding:6px 12px;cursor:pointer;font-weight:600}
+.hbtn:disabled{opacity:.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--brand);background:var(--brand);color:#fff;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn.ghost{background:#fff;color:var(--brand)}
+.btn:disabled{opacity:.5;cursor:default}
+:focus-visible{outline:3px solid #7cc4b2;outline-offset:2px}
+input,select,textarea{width:100%;min-height:42px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+textarea{min-height:64px;resize:vertical}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.muted{color:var(--muted)} .small{font-size:13px}
+
+.login{max-width:420px;margin:48px auto;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.login h1{font-size:22px;margin:0 0 6px}
+.login .f{margin:14px 0}
+.err{color:var(--bad);background:var(--bad-bg);border-radius:10px;padding:10px 12px;margin:12px 0}
+.err:empty{display:none}
+
+.tabs{display:flex;gap:6px;margin:14px 0 10px}
+.tab{flex:1;border:1px solid var(--line);background:#fff;border-radius:10px;min-height:40px;font-weight:700;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:14px}
+.chip span{color:var(--muted);font-weight:500;margin-left:4px}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.chip[aria-pressed="true"] span{color:#cfe6df}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.filters .q{grid-column:1/-1}
+@media(min-width:760px){.filters{grid-template-columns:2fr 1fr 1fr 1fr}.filters .q{grid-column:auto}}
+
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+
+.list{display:grid;gap:10px;padding-bottom:40px}
+.lead{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;border-left:5px solid var(--line)}
+.lead.s-new{border-left-color:#d9822b}
+.lead.s-work{border-left-color:#2f7fbf}
+.lead.s-win{border-left-color:var(--brand)}
+.lead.s-lost{border-left-color:#b9c4c0;opacity:.8}
+.lead .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.lead h3{margin:0;font-size:17px}
+.lead .meta{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent);color:var(--brand)}
+.badge.hot{background:var(--warn-bg);color:var(--warn)}
+.facts{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0;font-size:14px}
+.facts b{font-weight:600}
+.comment{background:var(--bg);border-radius:10px;padding:8px 10px;margin:8px 0;font-size:14px;white-space:pre-wrap}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.actions .btn{flex:1 1 auto}
+.edit{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.edit .wide{grid-column:1/-1}
+.edit .save{grid-column:1/-1;display:flex;gap:8px;align-items:center}
+.saved{font-size:13px;color:var(--brand)}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+th{background:var(--accent);font-size:12px;color:var(--muted);font-weight:700}
+.tscroll{overflow-x:auto;margin-bottom:18px;border-radius:12px}
+h2{font-size:17px;margin:18px 0 8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;z-index:30;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div><b>ЧистоСпейс</b> <small>менеджер</small></div>
+    <div class="sp"></div>
+    <small id="updated"></small>
+    <button class="hbtn" id="refresh" hidden>Обновить</button>
+    <button class="hbtn" id="logout" hidden>Выйти</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <form class="login" id="login" hidden>
+    <h1>Вход для менеджера</h1>
+    <p class="muted small">Ключ — значение свойства <code>MANAGER_KEY</code> в настройках Apps Script.</p>
+    <div class="f"><label for="key">Ключ доступа</label><input id="key" type="password" autocomplete="current-password" required></div>
+    <details class="small"><summary>Адрес скрипта</summary>
+      <div class="f"><input id="endpoint" type="url" placeholder="https://script.google.com/macros/s/.../exec"></div>
+    </details>
+    <div class="err" id="loginErr"></div>
+    <button class="btn" style="width:100%" id="loginBtn">Войти</button>
+  </form>
+
+  <div id="app" hidden>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="leads">Заявки</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="stats">Аналитика</button>
+    </div>
+
+    <section id="tab-leads">
+      <div class="chips" id="chips"></div>
+      <div class="filters">
+        <input class="q" id="q" type="search" placeholder="Имя, телефон, город, заметка">
+        <select id="fType"><option value="">Все типы</option></select>
+        <select id="fCity"><option value="">Все города</option></select>
+        <select id="fPeriod">
+          <option value="0">За всё время</option>
+          <option value="1">Сегодня</option>
+          <option value="7">7 дней</option>
+          <option value="30" selected>30 дней</option>
+        </select>
+      </div>
+      <div class="list" id="list"></div>
+    </section>
+
+    <section id="tab-stats" hidden>
+      <div class="filters" style="grid-template-columns:1fr">
+        <select id="sPeriod">
+          <option value="0">За всё время</option>
+          <option value="7">7 дней</option>
+          <option value="30" selected>30 дней</option>
+          <option value="90">90 дней</option>
+        </select>
+      </div>
+      <div class="kpis" id="kpis"></div>
+      <h2>По офферу / кампании</h2>
+      <div class="tscroll"><table id="byCampaign"></table></div>
+      <h2>По городу</h2>
+      <div class="tscroll"><table id="byCity"></table></div>
+      <h2>По типу уборки</h2>
+      <div class="tscroll"><table id="byType"></table></div>
+      <p class="muted small">«Цена названа» — заявки, дошедшие до статуса «Назвали цену» и дальше (включая «Дорого», «Думает», «Заказ», «Выполнен»). «Дорого» считается от заявок с названной ценой.</p>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const DEFAULT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzT70vyd6N9ShqcOJwZrjl6Od7cB5wBT61JETBZtK_QGorZGzyUMPp_Q6AXRg4AQtnu1Q/exec";
+
+// group: new — ждёт звонка, work — в работе, win — продано, lost — потеряно
+const STATUSES = [
+  { name: "Новая",        group: "new" },
+  { name: "Связались",    group: "work" },
+  { name: "Назвали цену", group: "work", priced: true },
+  { name: "Думает",       group: "work", priced: true },
+  { name: "Дорого",       group: "lost", priced: true },
+  { name: "Заказ",        group: "win",  priced: true },
+  { name: "Выполнен",     group: "win",  priced: true },
+  { name: "Отказ",        group: "lost" },
+  { name: "Не дозвонились", group: "lost" },
+  { name: "Спам",         group: "lost" }
+];
+const ST = Object.fromEntries(STATUSES.map(s => [s.name, s]));
+const stInfo = name => ST[name] || { name, group: "work" };
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k) { try { return localStorage.getItem("cs_mgr_" + k); } catch (e) { return null; } },
+  set(k, v) { try { v == null ? localStorage.removeItem("cs_mgr_" + k) : localStorage.setItem("cs_mgr_" + k, v); } catch (e) {} }
+};
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const rub = n => Math.round(n).toLocaleString("ru-RU") + " ₽";
+const pct = (a, b) => b ? Math.round(a / b * 100) + "%" : "—";
+
+let auth = { endpoint: store.get("endpoint") || DEFAULT_ENDPOINT, key: store.get("key") || "" };
+let leads = [];
+let statusFilter = store.get("status") || "active";
+let timer = null, lastNewCount = null;
+
+async function api(body) {
+  const r = await fetch(auth.endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(Object.assign({ key: auth.key }, body))
+  });
+  const j = await r.json();
+  if (j.auth === false) { logout(j.error); throw new Error(j.error); }
+  if (!j.ok) throw new Error(j.error || "Ошибка");
+  return j;
+}
+
+function toast(text) {
+  const t = $("#toast");
+  t.textContent = text; t.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 3000);
+}
+
+/* ---------- вход ---------- */
+function showLogin(msg) {
+  $("#app").hidden = true; $("#login").hidden = false;
+  $("#refresh").hidden = $("#logout").hidden = true;
+  $("#endpoint").value = auth.endpoint;
+  $("#loginErr").textContent = msg || "";
+  $("#key").focus();
+}
+function logout(msg) {
+  auth.key = ""; store.set("key", null);
+  clearInterval(timer);
+  showLogin(msg);
+}
+$("#login").addEventListener("submit", async e => {
+  e.preventDefault();
+  auth.key = $("#key").value.trim();
+  auth.endpoint = $("#endpoint").value.trim() || DEFAULT_ENDPOINT;
+  $("#loginBtn").disabled = true; $("#loginErr").textContent = "";
+  try {
+    await load();
+    store.set("key", auth.key); store.set("endpoint", auth.endpoint);
+    start();
+  } catch (err) {
+    if (!$("#loginErr").textContent) $("#loginErr").textContent = "Не удалось войти: " + err.message;
+  } finally { $("#loginBtn").disabled = false; }
+});
+$("#logout").onclick = () => logout();
+
+function start() {
+  $("#login").hidden = true; $("#app").hidden = false;
+  $("#refresh").hidden = $("#logout").hidden = false;
+  render();
+  clearInterval(timer);
+  timer = setInterval(() => { if (!document.hidden) load().then(render).catch(() => {}); }, 60000);
+}
+
+/* ---------- данные ---------- */
+async function load() {
+  const j = await api({ action: "list" });
+  leads = j.leads.map(l => {
+    const d = new Date(l.date);
+    let offer = "";
+    try { offer = new URL(l.page).searchParams.get("offer") || ""; } catch (e) {}
+    return Object.assign(l, {
+      ts: isNaN(d) ? 0 : d.getTime(),
+      campaign: (l.utm && (l.utm.utm_campaign || l.utm.utm_source)) || offer || "без метки",
+      offer
+    });
+  }).sort((a, b) => b.ts - a.ts);
+  const newCount = leads.filter(l => l.status === "Новая").length;
+  if (lastNewCount != null && newCount > lastNewCount) toast("Новых заявок: +" + (newCount - lastNewCount));
+  lastNewCount = newCount;
+  document.title = (newCount ? "(" + newCount + ") " : "") + "ЧистоСпейс — менеджер";
+  $("#updated").textContent = new Date().toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
+  return leads;
+}
+$("#refresh").onclick = async () => {
+  $("#refresh").disabled = true;
+  try { await load(); render(); } catch (e) { toast(e.message); }
+  $("#refresh").disabled = false;
+};
+
+/* ---------- заявки ---------- */
+function inPeriod(l, days) {
+  if (!+days) return true;
+  if (+days === 1) return new Date(l.ts).toDateString() === new Date().toDateString();
+  return Date.now() - l.ts < days * 864e5;
+}
+function ago(ts) {
+  const m = Math.round((Date.now() - ts) / 60000);
+  if (m < 1) return "только что";
+  if (m < 60) return m + " мин назад";
+  const h = Math.round(m / 60);
+  if (h < 24) return h + " ч назад";
+  return new Date(ts).toLocaleString("ru-RU", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+}
+function fillSelect(sel, values) {
+  const cur = sel.value, first = sel.options[0].outerHTML;
+  sel.innerHTML = first + values.map(v => `<option>${esc(v)}</option>`).join("");
+  sel.value = values.includes(cur) ? cur : "";
+}
+const uniq = arr => [...new Set(arr.filter(Boolean).map(String))].sort((a, b) => a.localeCompare(b, "ru"));
+
+function render() { renderLeads(); renderStats(); }
+
+function renderLeads() {
+  fillSelect($("#fType"), uniq(leads.map(l => l.type)));
+  fillSelect($("#fCity"), uniq(leads.map(l => l.city)));
+  const period = $("#fPeriod").value, type = $("#fType").value, city = $("#fCity").value;
+  const q = $("#q").value.trim().toLowerCase(), qDigits = q.replace(/\D/g, "");
+  const base = leads.filter(l => inPeriod(l, period) && (!type || l.type === type) && (!city || l.city === city) &&
+    (!q || [l.name, l.city, l.note, l.comment].join(" ").toLowerCase().includes(q) ||
+      (qDigits.length >= 3 && String(l.phone).replace(/\D/g, "").includes(qDigits))));
+
+  const counts = {};
+  base.forEach(l => counts[l.status] = (counts[l.status] || 0) + 1);
+  const active = base.filter(l => ["new", "work"].includes(stInfo(l.status).group)).length;
+  const names = STATUSES.map(s => s.name).concat(Object.keys(counts).filter(n => !ST[n]));
+  const chips = [["active", "В работе", active], ["all", "Все", base.length]]
+    .concat(names.filter(n => counts[n]).map(n => [n, n, counts[n]]));
+  if (!chips.some(c => c[0] === statusFilter)) statusFilter = "active";
+  $("#chips").innerHTML = chips.map(([v, t, n]) =>
+    `<button class="chip" data-st="${esc(v)}" aria-pressed="${v === statusFilter}">${esc(t)}<span>${n}</span></button>`).join("");
+
+  const shown = base.filter(l => statusFilter === "all" ? true :
+    statusFilter === "active" ? ["new", "work"].includes(stInfo(l.status).group) : l.status === statusFilter)
+    .sort((a, b) => (b.status === "Новая") - (a.status === "Новая") || b.ts - a.ts);
+
+  $("#list").innerHTML = shown.length ? shown.map(card).join("") :
+    `<div class="empty">${leads.length ? "Под фильтр ничего не попало" : "Заявок пока нет"}</div>`;
+}
+
+function card(l) {
+  const s = stInfo(l.status);
+  const tel = String(l.phone).replace(/[^\d+]/g, "");
+  const wa = tel.replace(/\D/g, "").replace(/^8(?=\d{10}$)/, "7");
+  const photos = l.photos.split(/\s+/).filter(p => /^https?:/.test(p));
+  const hot = l.status === "Новая" && Date.now() - l.ts < 15 * 60000;
+  const opts = STATUSES.map(x => x.name).concat(ST[l.status] ? [] : [l.status])
+    .map(n => `<option${n === l.status ? " selected" : ""}>${esc(n)}</option>`).join("");
+  return `<article class="lead s-${s.group}" data-row="${l.row}">
+    <div class="top">
+      <div>
+        <h3>${esc(l.name || "Без имени")} · ${esc(l.type || "")}</h3>
+        <div class="meta">${ago(l.ts)} · ${esc(l.city || "")}${l.campaign !== "без метки" ? " · " + esc(l.campaign) : ""}</div>
+      </div>
+      <span class="badge${hot ? " hot" : ""}">${hot ? "Позвонить сейчас" : esc(l.status)}</span>
+    </div>
+    <div class="facts">
+      ${l.area ? `<span><b>${esc(l.area)}</b> м²</span>` : ""}
+      ${l.condition ? `<span>${esc(l.condition)}</span>` : ""}
+      ${l.windows ? `<span>окон: ${esc(l.windows)}</span>` : ""}
+      ${l.wishDate ? `<span>на ${esc(l.wishDate)}</span>` : ""}
+      ${l.estimate ? `<span>ориентир: <b>${esc(l.estimate)}</b></span>` : ""}
+      ${!photos.length && l.photos ? `<span>${esc(l.photos)}</span>` : ""}
+    </div>
+    ${l.comment ? `<div class="comment">${esc(l.comment)}</div>` : ""}
+    ${photos.length ? `<div class="small">Фото: ${photos.map((p, i) => `<a href="${esc(p)}" target="_blank" rel="noopener">${i + 1}</a>`).join(", ")}</div>` : ""}
+    <div class="actions">
+      ${tel ? `<a class="btn" href="tel:${esc(tel)}">${esc(l.phone)}</a>` : ""}
+      ${wa.length >= 10 ? `<a class="btn ghost" href="https://wa.me/${wa}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
+      ${tel ? `<button class="btn ghost" data-copy="${esc(l.phone)}">Копировать</button>` : ""}
+    </div>
+    <form class="edit">
+      <div><label>Статус</label><select name="status">${opts}</select></div>
+      <div><label>Сумма заказа, ₽</label><input name="amount" inputmode="numeric" value="${esc(l.amount)}" placeholder="—"></div>
+      <div class="wide"><label>Заметка</label><textarea name="note" rows="2" placeholder="Что обсудили, когда перезвонить">${esc(l.note)}</textarea></div>
+      <div class="save"><button class="btn" type="submit">Сохранить</button><span class="saved"></span></div>
+    </form>
+  </article>`;
+}
+
+$("#chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  statusFilter = b.dataset.st; store.set("status", statusFilter); renderLeads();
+});
+["#q", "#fType", "#fCity", "#fPeriod"].forEach(s => $(s).addEventListener("input", renderLeads));
+
+$("#list").addEventListener("click", e => {
+  const c = e.target.closest("[data-copy]"); if (!c) return;
+  navigator.clipboard && navigator.clipboard.writeText(c.dataset.copy).then(() => toast("Номер скопирован"), () => {});
+});
+$("#list").addEventListener("change", e => {
+  if (e.target.name === "status") e.target.form.querySelector(".saved").textContent = "не сохранено";
+});
+$("#list").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = e.target, row = +f.closest(".lead").dataset.row;
+  const l = leads.find(x => x.row === row); if (!l) return;
+  const amount = f.amount.value.replace(/[^\d]/g, "");
+  const patch = { status: f.status.value, note: f.note.value.trim(), amount };
+  const btn = f.querySelector("button"), msg = f.querySelector(".saved");
+  btn.disabled = true; msg.textContent = "Сохраняю…";
+  try {
+    await api(Object.assign({ action: "update", row, date: l.date }, patch));
+    Object.assign(l, patch, { amount: amount ? +amount : "" });
+    lastNewCount = leads.filter(x => x.status === "Новая").length;
+    toast("Сохранено: " + patch.status);
+    render();
+  } catch (err) {
+    msg.textContent = err.message; btn.disabled = false;
+  }
+});
+
+/* ---------- аналитика ---------- */
+function agg(list, keyFn) {
+  const m = new Map();
+  list.forEach(l => {
+    const k = keyFn(l) || "—";
+    if (!m.has(k)) m.set(k, { k, n: 0, priced: 0, expensive: 0, won: 0, revenue: 0, spam: 0 });
+    const a = m.get(k), s = stInfo(l.status);
+    a.n++;
+    if (s.priced) a.priced++;
+    if (l.status === "Дорого") a.expensive++;
+    if (s.group === "win") { a.won++; a.revenue += +l.amount || 0; }
+    if (l.status === "Спам") a.spam++;
+  });
+  return [...m.values()].sort((a, b) => b.n - a.n);
+}
+function table(el, rows) {
+  el.innerHTML = `<tr><th></th><th>Заявок</th><th>Цена названа</th><th>«Дорого»</th><th>Заказов</th><th>Конверсия</th><th>Выручка</th></tr>` +
+    (rows.length ? rows.map(r => `<tr><td>${esc(r.k)}</td><td>${r.n}</td><td>${pct(r.priced, r.n)}</td><td>${pct(r.expensive, r.priced)}</td>
+      <td>${r.won}</td><td>${pct(r.won, r.n)}</td><td>${r.revenue ? rub(r.revenue) : "—"}</td></tr>`).join("")
+      : `<tr><td colspan="7" class="muted">Нет данных</td></tr>`);
+}
+function renderStats() {
+  const list = leads.filter(l => inPeriod(l, $("#sPeriod").value));
+  const t = agg(list, () => "all")[0] || { n: 0, priced: 0, won: 0, revenue: 0 };
+  const waiting = list.filter(l => l.status === "Новая").length;
+  $("#kpis").innerHTML = [
+    [t.n, "заявок"],
+    [waiting, "ждут звонка"],
+    [pct(t.won, t.n), "в заказ (" + t.won + ")"],
+    [t.revenue ? rub(t.revenue) : "—", "выручка" + (t.won ? ", средний " + rub(t.revenue / t.won) : "")]
+  ].map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+  table($("#byCampaign"), agg(list, l => l.campaign));
+  table($("#byCity"), agg(list, l => l.city));
+  table($("#byType"), agg(list, l => l.type));
+}
+$("#sPeriod").addEventListener("input", renderStats);
+
+/* ---------- вкладки ---------- */
+document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === b));
+  $("#tab-leads").hidden = b.dataset.tab !== "leads";
+  $("#tab-stats").hidden = b.dataset.tab !== "stats";
+});
+
+/* ---------- старт ---------- */
+if (auth.key) load().then(start).catch(err => showLogin(err.message));
+else showLogin();
+</script>
+</body>
+</html>
