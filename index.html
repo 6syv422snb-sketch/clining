@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ЧистоСпейс — уборка после ремонта и клининг офисов в СПб, Екатеринбурге и Казани</title>
-<meta name="description" content="Уборка квартир после ремонта от 180 ₽/м² и регулярный клининг офисов 50–300 м². Стоимость фиксируем до начала работ, работаем по чек-листу, 24 часа на замечания.">
+<title>ЧистоСпейс — уборка офисов и уборка после корпоративов в Санкт-Петербурге</title>
+<meta name="description" content="Регулярная уборка офисов и коммерческих помещений 50–300 м² и разовая уборка после корпоративов и праздников в Санкт-Петербурге. Стоимость фиксируем до выезда, работаем по чек-листу, договор и безнал.">
 <meta name="theme-color" content="#0f5c4d">
 <style>
 :root{
@@ -59,6 +59,8 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .hero-art{display:none}
 @media(min-width:900px){.hero-top{grid-template-columns:1.15fr .85fr}.hero-art{display:block}}
 .hero-art svg{width:100%;height:auto;display:block}
+.season{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:12px 14px;margin:0 0 20px}
+.season a{font-weight:700;white-space:nowrap}
 
 /* tabs */
 .tabs{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;margin:24px 0}
@@ -151,10 +153,13 @@ footer a{color:#dfeee9}
   <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
   <symbol id="i-pan" viewBox="0 0 24 24"><path d="M3 11h13v3a5 5 0 01-5 5H8a5 5 0 01-5-5z"/><path d="M16 12h5"/><path d="M8 4v3M11 4v3"/></symbol>
-  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5z"/><path d="M6 12V6a2 2 0 014 0"/><path d="M7 19l-1 2M17 19l1 2"/></symbol>
-  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0114 0"/><path d="M16 11l2 2 4-4"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 01-5 5H9a5 5 0 01-5-5z"/><path d="M6 12V6a2 2 0&nbsp;014 0"/><path d="M7 19l-1 2M17 19l1 2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0&nbsp;0114 0"/><path d="M16 11l2 2 4-4"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-3-3"/><path d="M20 16H6l3 3"/></symbol>
   <symbol id="i-office" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></symbol>
+  <symbol id="i-party" viewBox="0 0 24 24"><path d="M4 20l5-14 9 9z"/><path d="M14 4v2M19 9h2M17.5 5.5l1.5-1.5"/><path d="M7 12l5 5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-1 13H7z"/><path d="M9 8V6a3 3 0&nbsp;016 0v2"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0&nbsp;019.5 4a8 8 0&nbsp;1010.5 10.5z"/></symbol>
 </svg>
 
 <header class="top">
@@ -173,28 +178,28 @@ footer a{color:#dfeee9}
   <div class="wrap">
     <div class="hero-top">
     <div>
-    <span class="cities">Санкт-Петербург • Екатеринбург • Казань</span>
-    <h1 id="hero-title">Уборка после ремонта и регулярный клининг бизнеса — цена фиксируется до начала работ</h1>
-    <p class="lead" id="hero-lead">Пришлите фото объекта — мы рассчитаем стоимость и согласуем её с вами до выезда. Если объект соответствует фото и описанию, сумма на месте не меняется.</p>
+    <span class="cities">Санкт-Петербург</span>
+    <h1 id="hero-title">Уборка офисов и коммерческих помещений — регулярно и после корпоративов</h1>
+    <p class="lead" id="hero-lead">Регулярная уборка по графику без своей уборщицы и разовая уборка после праздника — к началу рабочего дня всё чисто. Стоимость считаем по фото и фиксируем до выезда.</p>
     </div>
     <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0&nbsp;440 400" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="10" width="420" height="380" rx="28" fill="#ffffff" stroke="#dde6e2"/>
-        <path d="M10 270h420v92a28 28 0 0 1-28 28H38a28 28 0 0 1-28-28z" fill="#e6f0ec"/>
+        <path d="M10&nbsp;270h420v92a28 28 0 0 1-28 28H38a28 28 0 0 1-28-28z" fill="#e6f0ec"/>
         <rect x="150" y="46" width="170" height="180" rx="8" fill="#e8f3ef" stroke="#0f5c4d" stroke-width="4"/>
-        <path d="M235 46v180M150 136h170" stroke="#0f5c4d" stroke-width="4"/>
-        <path d="M150 226 90 270h300l-70-44z" fill="#fff8e6"/>
-        <path d="M150 292h80M270 300h40M110 380h50" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+        <path d="M235 46v180M150&nbsp;136h170" stroke="#0f5c4d" stroke-width="4"/>
+        <path d="M150&nbsp;226 90&nbsp;270h300l-70-44z" fill="#fff8e6"/>
+        <path d="M150&nbsp;292h80M270&nbsp;300h40M110&nbsp;380h50" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
         <rect x="52" y="222" width="44" height="48" rx="6" fill="#0f5c4d"/>
-        <path d="M74 222c-18-30-10-60 0-72 10 12 18 42 0 72zM74 222c-30-10-38-34-36-48 16 2 34 20 36 48zM74 222c28-8 38-30 38-44-16 0-34 16-38 44z" fill="#7cc4b2"/>
+        <path d="M74&nbsp;222c-18-30-10-60 0-72 10 12 18 42 0 72zM74&nbsp;222c-30-10-38-34-36-48 16 2 34 20 36 48zM74&nbsp;222c28-8 38-30 38-44-16 0-34 16-38 44z" fill="#7cc4b2"/>
         <path d="M372 70l5 14 14 5-14 5-5 14-5-14-14-5 14-5z" fill="#7cc4b2"/>
         <path d="M110 70l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#7cc4b2"/>
-        <path d="M362 196l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#0f5c4d" opacity=".6"/>
+        <path d="M362&nbsp;196l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#0f5c4d" opacity=".6"/>
         <rect x="222" y="252" width="190" height="112" rx="16" fill="#ffffff" stroke="#dde6e2"/>
         <text x="240" y="282" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="14" fill="#5b6b66">Расчёт по фото</text>
         <text x="240" y="310" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="20" font-weight="800" fill="#0f5c4d">Цена согласована</text>
         <rect x="240" y="326" width="112" height="24" rx="12" fill="#e8f3ef"/>
-        <path d="M252 338l5 5 9-9" fill="none" stroke="#0f5c4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M252&nbsp;338l5 5 9-9" fill="none" stroke="#0f5c4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
         <text x="274" y="343" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="13" font-weight="700" fill="#0f5c4d">до выезда</text>
         <rect x="30" y="296" width="176" height="76" rx="16" fill="#ffffff" stroke="#dde6e2"/>
         <text x="48" y="322" font-family="-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="14" fill="#5b6b66">Приёмка по чек-листу</text>
@@ -204,21 +209,23 @@ footer a{color:#dfeee9}
     </div>
     </div>
 
+    <div class="season"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-party"/></svg></span><span><b>Новогодние корпоративы:</b> принимаем заявки на декабрь. Уберём ночью или рано утром — офис готов к началу рабочего дня. <a href="#calc" data-pick="event">Забронировать дату →</a></span></div>
+
     <div class="hero-grid">
-      <div class="hero-card"><b>После ремонта — от 180 ₽/м²</b><span class="muted">Подготовим квартиру или коммерческое помещение к заселению или открытию: строительная пыль, поверхности, санузлы, финальная приёмка.</span></div>
-      <div class="hero-card"><b>Для бизнеса — от 4 500 ₽ за выезд</b><span class="muted">Регулярная уборка офисов, студий, салонов и клиник 50–300 м² без найма своей уборщицы. Фиксированный график, замена исполнителя.</span></div>
+      <div class="hero-card"><b>Регулярно — от 4&nbsp;500&nbsp;₽ за выезд</b><span class="muted">Офисы, студии, салоны, шоурумы и клиники 50–300 м² без своей уборщицы. Фиксированный график, замена исполнителя, контроль качества.</span></div>
+      <div class="hero-card"><b>После корпоратива и праздника — от 5&nbsp;000&nbsp;₽</b><span class="muted">Разовая уборка в офисе, лофте или зале: мусор, столы, полы, кухня и санузлы. Приедем ночью сразу после или рано утром.</span></div>
     </div>
 
     <ul class="promises">
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></span><span><b>Стоимость до начала работ.</b> Все доплаты опубликованы ниже, дополнительные работы — только с вашего согласия.</span></li>
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-check"/></svg></span><span><b>Работаем по чек-листу</b> и принимаем работу вместе с вами по тому же списку.</span></li>
-      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span><span><b>Бережно к отделке.</b> Фиксируем состояние дорогих поверхностей до начала и подбираем средства под материал.</span></li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-doc"/></svg></span><span><b>Договор и оплата по безналу.</b> Чек и закрывающие документы для бухгалтерии.</span></li>
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-clock"/></svg></span><span><b>24 часа на замечания</b> — бесплатно устраним всё, что входит в согласованный чек-лист.</span></li>
     </ul>
 
     <div class="btns">
-      <a class="btn" href="#calc" data-pick="renovation">Рассчитать уборку после ремонта</a>
-      <a class="btn ghost" href="#calc" data-pick="office">Рассчитать регулярный клининг</a>
+      <a class="btn" href="#calc" data-pick="office">Рассчитать регулярную уборку</a>
+      <a class="btn ghost" href="#calc" data-pick="event">Рассчитать уборку после праздника</a>
     </div>
   </div>
 </section>
@@ -228,65 +235,11 @@ footer a{color:#dfeee9}
   <div class="wrap">
     <h2>Выберите услугу</h2>
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" id="tab-renovation" aria-controls="panel-renovation" aria-selected="true">После ремонта</button>
-      <button class="tab" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="false">Для бизнеса</button>
+      <button class="tab" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="true">Регулярно</button>
+      <button class="tab" role="tab" id="tab-event" aria-controls="panel-event" aria-selected="false">После праздника</button>
     </div>
 
-    <div class="panel" id="panel-renovation" role="tabpanel" aria-labelledby="tab-renovation">
-      <p class="lead">Для собственников, дизайнеров, прорабов и ремонтных компаний. Сдаёте объект заказчику или заезжаете сами — в чистое помещение, а не после «уборки бригадой».</p>
-      <div class="cols">
-        <div class="card">
-          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-home"/></svg></span><h3>Во всех помещениях</h3></div>
-          <ul>
-            <li>удаление строительной пыли с доступных поверхностей, в том числе вертикальных</li>
-            <li>влажная уборка полов, очистка плинтусов</li>
-            <li>двери и дверные коробки</li>
-            <li>выключатели и розетки снаружи</li>
-            <li>подоконники</li>
-            <li>мебель снаружи, если уже установлена</li>
-            <li>лёгкие следы стройматериалов — если это безопасно для покрытия</li>
-            <li>сбор и вынос бытового мусора</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-pan"/></svg></span><h3>Кухня</h3></div>
-          <ul>
-            <li>фасады снаружи</li>
-            <li>столешница и фартук</li>
-            <li>раковина и смеситель</li>
-            <li>бытовая техника снаружи</li>
-            <li>все доступные поверхности от пыли</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-bath"/></svg></span><h3>Санузел</h3></div>
-          <ul>
-            <li>сантехника, душевая или ванна</li>
-            <li>зеркала и смесители</li>
-            <li>плитка в доступных местах</li>
-            <li>шкафы снаружи</li>
-            <li>пол</li>
-          </ul>
-        </div>
-      </div>
-      <details class="card" style="margin-top:16px">
-        <summary>Что не входит в базовую стоимость</summary>
-        <ul>
-          <li>вывоз строительного мусора, мешков, остатков материалов</li>
-          <li>промышленное удаление цемента, затирки, монтажной пены, краски, клея; демонтаж загрязнений инструментом</li>
-          <li>мойка окон и остекления, удаление защитной плёнки с окон, мебели и техники</li>
-          <li>мойка внутри шкафов, ящиков, гардеробных и бытовой техники</li>
-          <li>химчистка мебели и ковров</li>
-          <li>работы выше стандартной стремянки, люстры сложной конструкции, фасады здания</li>
-          <li>перемещение тяжёлой мебели</li>
-          <li>объекты после масштабных работ с большим количеством строительного мусора</li>
-        </ul>
-        <p class="small muted" style="margin:10px 0 0">Большую часть этого можно заказать отдельно — цены в блоке «Доплаты».</p>
-      </details>
-      <p style="margin-top:16px"><b>Сроки:</b> большинство объектов до 100 м² убираем за 1 рабочий день.</p>
-    </div>
-
-    <div class="panel" id="panel-office" role="tabpanel" aria-labelledby="tab-office" hidden>
+    <div class="panel" id="panel-office" role="tabpanel" aria-labelledby="tab-office">
       <p class="lead">Офисы, студии, шоурумы, салоны, небольшие клиники, агентства и учебные пространства 50–300 м². Вы не думаете, выйдет ли уборщица, — вы знаете, когда приедут и сколько это стоит.</p>
       <div class="cols">
         <div class="card">
@@ -320,14 +273,59 @@ footer a{color:#dfeee9}
       <details class="card" style="margin-top:16px">
         <summary>Что не входит в регулярную уборку</summary>
         <ul>
-          <li>генеральная уборка и уборка после ремонта (заказываются отдельно)</li>
+          <li>генеральная уборка (заказывается отдельно)</li>
           <li>мойка всех окон, фасадов, химчистка</li>
           <li>удаление сложных пятен</li>
           <li>промышленное оборудование, складские и производственные загрязнения</li>
-          <li>уборка после мероприятий</li>
+          <li>уборка после мероприятий — отдельная услуга, см. вкладку «После праздника»</li>
           <li>расходники клиента (бумага, мыло и т. п.) — если не договорились отдельно</li>
         </ul>
       </details>
+    </div>
+
+    <div class="panel" id="panel-event" role="tabpanel" aria-labelledby="tab-event" hidden>
+      <p class="lead">Корпоративы, новогодние вечеринки, дни рождения, презентации — в офисе, лофте или арендованном зале. Приедем ночью сразу после или рано утром, чтобы к началу рабочего дня всё было чисто.</p>
+      <div class="cols">
+        <div class="card">
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-bag"/></svg></span><h3>Мусор и столы</h3></div>
+          <ul>
+            <li>сбор и вынос мусора: бутылки, одноразовая посуда, упаковка</li>
+            <li>уборка и протирка столов, стульев, барных стоек</li>
+            <li>остатки еды и напитков с поверхностей</li>
+            <li>лёгкие декорации — шары, гирлянды, конфетти — по согласованию</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-spark"/></svg></span><h3>Полы и пятна</h3></div>
+          <ul>
+            <li>влажная уборка полов во всех зонах</li>
+            <li>свежие пятна от напитков и еды с твёрдых поверхностей</li>
+            <li>блёстки и конфетти</li>
+            <li>расстановка лёгкой мебели по местам</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-pan"/></svg></span><h3>Кухня и санузлы</h3></div>
+          <ul>
+            <li>кухня или кофе-зона, раковина, столешницы</li>
+            <li>санузлы, сантехника и зеркала</li>
+            <li>замена мусорных пакетов</li>
+            <li>финальная проверка по чек-листу</li>
+          </ul>
+        </div>
+      </div>
+      <details class="card" style="margin-top:16px">
+        <summary>Что не входит в базовую стоимость</summary>
+        <ul>
+          <li>химчистка мягкой мебели и ковров</li>
+          <li>вывоз крупного мусора, мебели и декораций</li>
+          <li>мойка большого объёма посуды, в том числе кейтеринговой</li>
+          <li>застарелые и въевшиеся пятна</li>
+          <li>мойка окон, демонтаж оборудования и сцены</li>
+        </ul>
+        <p class="small muted" style="margin:10px 0 0">Часть этого можно заказать отдельно — цены в блоке «Доплаты».</p>
+      </details>
+      <p style="margin-top:16px"><b>Время:</b> согласуем заранее — ночью сразу после мероприятия или рано утром до начала рабочего дня.</p>
     </div>
   </div>
 </section>
@@ -347,14 +345,14 @@ footer a{color:#dfeee9}
     <h2>Цена</h2>
     <div class="prices">
       <div class="card">
-        <h3>После ремонта</h3>
-        <div class="price">от 180 ₽<small>/м²</small></div>
-        <p class="muted">Минимальный заказ — 5 000 ₽.<br>Сильно загрязнённые объекты — от 220–250 ₽/м².</p>
+        <h3>Регулярная уборка</h3>
+        <div class="price">от 4&nbsp;500&nbsp;₽<small> за выезд</small></div>
+        <p class="muted">Или от 30–45&nbsp;₽/м² при регулярном графике.<br>Итог зависит от площади, частоты уборки, количества санузлов и рабочих мест, а также состояния помещения.</p>
       </div>
       <div class="card">
-        <h3>Регулярный клининг бизнеса</h3>
-        <div class="price">от 4 500 ₽<small> за выезд</small></div>
-        <p class="muted">Или от 30–45 ₽/м² при регулярном графике.<br>Итог зависит от площади, частоты уборки, количества санузлов и рабочих мест, а также состояния помещения.</p>
+        <h3>После корпоратива или праздника</h3>
+        <div class="price">от 5&nbsp;000&nbsp;₽<small> за выезд</small></div>
+        <p class="muted">Ориентир — 60–90&nbsp;₽/м².<br>Итог зависит от площади, числа гостей, объёма мусора и времени выезда.</p>
       </div>
     </div>
 
@@ -362,13 +360,12 @@ footer a{color:#dfeee9}
       <div class="card">
         <h3>Доплаты — все заранее</h3>
         <table class="addons">
-          <tr><td>Окна</td><td>от 300–500 ₽ за створку</td></tr>
-          <tr><td>Внутри шкафов</td><td>от 1 000–3 000 ₽</td></tr>
-          <tr><td>Холодильник внутри</td><td>от 800–1 500 ₽</td></tr>
-          <tr><td>Духовка</td><td>от 1 000–1 500 ₽</td></tr>
+          <tr><td>Окна</td><td>от 300–500&nbsp;₽ за створку</td></tr>
+          <tr><td>Холодильник внутри</td><td>от 800–1&nbsp;500&nbsp;₽</td></tr>
           <tr><td>Химчистка мягкой мебели</td><td>по расчёту</td></tr>
-          <tr><td>Сложные строительные загрязнения</td><td>после фото/осмотра</td></tr>
-          <tr><td>Вынос строительного мусора</td><td>отдельно</td></tr>
+          <tr><td>Мойка большого объёма посуды</td><td>по расчёту</td></tr>
+          <tr><td>Сложные загрязнения</td><td>после фото/осмотра</td></tr>
+          <tr><td>Вынос крупного мусора и декораций</td><td>отдельно</td></tr>
           <tr><td>Срочный выезд день-в-день</td><td>+20–30%</td></tr>
           <tr><td>Ночной выезд</td><td>+20–30%</td></tr>
           <tr><td>Без лифта / сложный доступ</td><td>по согласованию</td></tr>
@@ -378,8 +375,8 @@ footer a{color:#dfeee9}
 
     <div class="card" style="margin-top:16px">
       <h3>Как считаем стоимость</h3>
-      <p>Стоимость рассчитывается до начала работ. Для точного расчёта попросим: город, тип объекта, площадь, фотографии, вид уборки, желаемую дату, есть ли окна и сложные загрязнения. После этого вы получаете <b>фиксированную предварительную стоимость письменно</b>.</p>
-      <p class="note" style="margin:0">Если фактическое состояние объекта существенно отличается от фото и описания, дополнительные работы согласовываются с вами до начала их выполнения.</p>
+      <p>Стоимость рассчитывается до начала работ. Для точного расчёта попросим: тип помещения, площадь, фотографии, вид уборки, дату и время, а для мероприятий — примерное число гостей. После этого вы получаете <b>фиксированную предварительную стоимость письменно</b>.</p>
+      <p class="note" style="margin:0">Если фактическое состояние помещения существенно отличается от фото и описания, дополнительные работы согласовываются с вами до начала их выполнения.</p>
     </div>
   </div>
 </section>
@@ -390,10 +387,10 @@ footer a{color:#dfeee9}
     <h2>Как работаем</h2>
     <ol class="steps">
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-msg"/></svg></span><b>Заявка</b>Оставляете заявку на сайте — свяжемся с вами в течение 15 минут.</li>
-      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-camera"/></svg></span><b>Фото</b>Присылаете фото или видео объекта.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-camera"/></svg></span><b>Фото</b>Присылаете фото или видео помещения.</li>
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></span><b>Расчёт</b>Присылаем фиксированную стоимость и состав работ письменно.</li>
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-calendar"/></svg></span><b>Согласование</b>Дата, время, контакт исполнителя. Напомним накануне.</li>
-      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-spark"/></svg></span><b>Уборка</b>Фиксируем состояние дорогих поверхностей до начала, работаем по чек-листу.</li>
+      <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-spark"/></svg></span><b>Уборка</b>Приезжаем в согласованное время, в том числе ночью или рано утром, и работаем по чек-листу.</li>
       <li><span class="ico-badge" aria-hidden="true"><svg class="ico"><use href="#i-eye"/></svg></span><b>Контроль</b>Принимаете работу по тому же чек-листу, получаете фотоотчёт.</li>
     </ol>
   </div>
@@ -409,17 +406,17 @@ footer a{color:#dfeee9}
         <p style="margin:0">Если после уборки вы обнаружили недочёты, сообщите нам в течение 24 часов. Мы бесплатно устраним замечания, относящиеся к согласованному чек-листу работ.</p>
       </div>
       <div class="card">
-        <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Бережно к отделке</h3></div>
-        <p style="margin:0">До начала уборки фотографируем дорогие поверхности, сколы, трещины, царапины и технику. Работаем только средствами, подходящими для конкретных материалов. Если имущество повреждено по нашей вине, разбираем ситуацию и компенсируем подтверждённый ущерб в порядке, предусмотренном договором.</p>
+        <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Бережно к имуществу</h3></div>
+        <p style="margin:0">Не перекладываем документы и личные вещи на рабочих местах, технику протираем только снаружи. До начала фиксируем имеющиеся повреждения и подбираем средства под материалы. Если имущество повреждено по нашей вине, разбираем ситуацию и компенсируем подтверждённый ущерб в порядке, предусмотренном договором.</p>
       </div>
       <div class="card">
         <div class="card-head"><span class="ico-badge soft" aria-hidden="true"><svg class="ico"><use href="#i-user"/></svg></span><h3>Что нужно от вас</h3></div>
         <ul>
-          <li>доступ к объекту, вода и электричество</li>
-          <li>сообщить о деликатных поверхностях и проблемных зонах, приложить рекомендации производителя по уходу</li>
+          <li>доступ в помещение в согласованное время</li>
+          <li>пропуск и согласование с охраной бизнес-центра, особенно для ночной уборки</li>
           <li>убрать документы, деньги и ценные вещи</li>
-          <li>возможность вынести бытовой мусор</li>
-          <li>пропуск и парковка, если объект в закрытом ЖК или БЦ</li>
+          <li>сообщить о деликатных поверхностях и технике</li>
+          <li>место, куда можно вынести мусор</li>
         </ul>
       </div>
     </div>
@@ -437,35 +434,28 @@ footer a{color:#dfeee9}
         <div class="row">
           <label>Тип уборки
             <select name="type" id="f-type" required>
-              <option value="renovation">Уборка после ремонта</option>
-              <option value="office">Регулярная уборка бизнеса</option>
+              <option value="office">Регулярная уборка</option>
+              <option value="event">Уборка после корпоратива или праздника</option>
             </select>
           </label>
-          <div class="row two">
-            <label>Город
-              <select name="city" required>
-                <option>Санкт-Петербург</option>
-                <option>Екатеринбург</option>
-                <option>Казань</option>
+          <input type="hidden" name="city" value="Санкт-Петербург">
+          <label>Площадь, м²
+            <input name="area" id="f-area" type="number" inputmode="numeric" min="10" max="5000" placeholder="например, 120" required>
+          </label>
+          <div class="row two" data-only="event">
+            <label>Когда убрать
+              <select name="when" id="f-when">
+                <option value="night">Ночью, сразу после мероприятия</option>
+                <option value="morning">Рано утром, до начала рабочего дня</option>
+                <option value="day">Днём</option>
               </select>
             </label>
-            <label>Площадь, м²
-              <input name="area" id="f-area" type="number" inputmode="numeric" min="10" max="5000" placeholder="например, 65" required>
-            </label>
-          </div>
-          <div class="row two" data-only="renovation">
-            <label>Состояние
-              <select name="condition" id="f-condition">
-                <option value="normal">Обычное после ремонта</option>
-                <option value="heavy">Сильно загрязнено</option>
-              </select>
-            </label>
-            <label>Створок окон <span class="opt">(если мыть)</span>
-              <input name="windows" id="f-windows" type="number" inputmode="numeric" min="0" max="200" placeholder="0">
+            <label>Гостей <span class="opt">(примерно)</span>
+              <input name="guests" id="f-guests" type="number" inputmode="numeric" min="0" max="2000" placeholder="например, 40">
             </label>
           </div>
           <div class="row two">
-            <label>Желаемая дата <span class="opt">(необязательно)</span>
+            <label>Дата <span class="opt">(необязательно)</span>
               <input name="date" type="date">
             </label>
             <label>Имя
@@ -476,9 +466,9 @@ footer a{color:#dfeee9}
             <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7" required>
           </label>
           <label>Комментарий <span class="opt">(необязательно)</span>
-            <textarea name="comment" placeholder="Санузлы, материалы (камень, шпон), плёнка на окнах, пропуск в ЖК…"></textarea>
+            <textarea name="comment" placeholder="Тип помещения, сколько санузлов и рабочих мест, частота уборки, пропуск в БЦ…"></textarea>
           </label>
-          <label>Фото объекта <span class="opt">(до 5 фото — так расчёт будет точным)</span>
+          <label>Фото помещения <span class="opt">(до 5 фото — так расчёт будет точным)</span>
             <input name="photos" id="f-photos" type="file" accept="image/*" multiple>
             <span class="thumbs" id="thumbs"></span>
           </label>
@@ -493,7 +483,7 @@ footer a{color:#dfeee9}
         <h3>Ориентировочно</h3>
         <div class="price" id="est-price">—</div>
         <p class="muted small" id="est-note">Укажите площадь — покажем ориентир.</p>
-        <p class="small" style="margin:0">Фиксированную стоимость пришлём после фото. Если объект соответствует фото и описанию, на месте она не меняется.</p>
+        <p class="small" style="margin:0">Фиксированную стоимость пришлём после фото. Если помещение соответствует фото и описанию, на месте она не меняется.</p>
         <div class="btns" style="margin:16px 0 0">
           <a class="btn ghost" data-contact="telegram" href="#" hidden>Написать в Telegram</a>
           <a class="btn ghost" data-contact="whatsapp" href="#" hidden>Написать в WhatsApp</a>
@@ -508,18 +498,18 @@ footer a{color:#dfeee9}
   <div class="wrap">
     <h2>Частые вопросы</h2>
     <div class="faq">
-      <details class="card"><summary>Цена на месте вырастет?</summary><p>Нет, если объект соответствует фото и описанию. Стоимость согласуем письменно до выезда. Если на месте обнаружится то, чего не было на фото, дополнительные работы — только с вашего согласия и до их начала.</p></details>
-      <details class="card"><summary>Строители же уберут после себя?</summary><p>Бригада убирает, чтобы вы приняли работы. Строительная пыль оседает на всех поверхностях ещё несколько дней, и жить после такой уборки нельзя. Мы убираем так, чтобы можно было заехать.</p></details>
-      <details class="card"><summary>Почему не 60 ₽/м², как у некоторых?</summary><p>Низкая цена на сайте часто означает, что итог назовут уже на объекте. У нас в стоимость входит весь чек-лист выше, а все доплаты опубликованы заранее.</p></details>
-      <details class="card"><summary>У меня дорогие материалы: камень, кварц, шпон</summary><p>Напишите о них в заявке и приложите рекомендации производителя, если они есть. До начала работ фиксируем состояние поверхностей и подбираем средства под материал.</p></details>
-      <details class="card"><summary>Для офиса: что, если сотрудник заболеет?</summary><p>Пришлём замену, график не сорвётся. Условия замены прописываем в договоре.</p></details>
-      <details class="card"><summary>Работаете с юрлицами?</summary><p>Да: договор, закрывающие документы каждый месяц, оплата по безналу.</p></details>
+      <details class="card"><summary>Цена на месте вырастет?</summary><p>Нет, если помещение соответствует фото и описанию. Стоимость согласуем письменно до выезда. Если на месте обнаружится то, чего не было на фото, дополнительные работы — только с вашего согласия и до их начала.</p></details>
+      <details class="card"><summary>Успеете убрать до начала рабочего дня?</summary><p>Да, если согласуем время заранее: приедем ночью сразу после мероприятия или рано утром. Ночной выезд — +20–30%, это видно в расчёте.</p></details>
+      <details class="card"><summary>Праздник был не в офисе, а в лофте или зале</summary><p>Убираем и арендованные площадки. Время и доступ согласуйте с администратором площадки, а мы подстроимся.</p></details>
+      <details class="card"><summary>Что, если сотрудник заболеет?</summary><p>Пришлём замену, график регулярной уборки не сорвётся. Условия замены прописываем в договоре.</p></details>
+      <details class="card"><summary>У нас уже есть уборщица</summary><p>Подменим её на время отпуска или больничного, сделаем генеральную уборку или уберём после праздника, пока она в выходной.</p></details>
+      <details class="card"><summary>Работаете с юрлицами?</summary><p>Да: договор, оплата по безналу, чек и закрывающие документы для бухгалтерии.</p></details>
     </div>
 
     <div class="card" style="margin-top:24px">
-      <h3>Дизайнерам, прорабам и ремонтным компаниям</h3>
-      <p>Финальная уборка перед сдачей объекта: к нужной дате, без отвлечения ваших людей, с фотоотчётом. Для постоянных партнёров — приоритетные слоты и вознаграждение за рекомендацию.</p>
-      <a class="btn ghost" href="#calc" data-pick="renovation">Обсудить сотрудничество</a>
+      <h3>Ивент-агентствам, площадкам и управляющим компаниям БЦ</h3>
+      <p>Уборка после ваших мероприятий и в офисах арендаторов: к нужному времени, по чек-листу, с фотоотчётом. Для постоянных партнёров — приоритетные слоты и вознаграждение за рекомендацию.</p>
+      <a class="btn ghost" href="#calc" data-pick="event">Обсудить сотрудничество</a>
     </div>
   </div>
 </section>
@@ -527,7 +517,7 @@ footer a{color:#dfeee9}
 
 <footer>
   <div class="wrap">
-    <p><b data-brand>ЧистоСпейс</b> — уборка с фиксированной ценой в Санкт-Петербурге, Екатеринбурге и Казани.</p>
+    <p><b data-brand>ЧистоСпейс</b> — уборка офисов и коммерческих помещений в Санкт-Петербурге.</p>
     <p data-legal hidden></p>
     <p><a href="privacy.html">Политика конфиденциальности</a></p>
   </div>
@@ -592,8 +582,9 @@ const CONFIG = {
   }));
 
   // калькулятор
-  const type = $("#f-type"), area = $("#f-area"), cond = $("#f-condition"), win = $("#f-windows");
+  const type = $("#f-type"), area = $("#f-area"), when = $("#f-when"), guests = $("#f-guests");
   const fmt = n => (Math.round(n / 100) * 100).toLocaleString("ru-RU");
+  const WHEN = { night: "ночью сразу после", morning: "рано утром", day: "днём" };
   function setType(kind){
     type.value = kind;
     $$("[data-only]").forEach(el => el.hidden = el.dataset.only !== kind);
@@ -603,39 +594,35 @@ const CONFIG = {
     const a = parseFloat(area.value);
     const out = $("#est-price"), note = $("#est-note");
     if (!a || a < 10) { out.textContent = "—"; note.textContent = "Укажите площадь — покажем ориентир."; return; }
-    if (type.value === "renovation") {
-      const heavy = cond.value === "heavy";
-      const lo = Math.max(5000, a * (heavy ? 220 : 180));
-      const hi = heavy ? Math.max(5000, a * 250) : null;
-      const w = parseInt(win.value, 10) || 0;
+    if (type.value === "event") {
+      const night = when.value === "night";
+      const lo = Math.max(5000, a * 60) * (night ? 1.2 : 1);
+      const hi = Math.max(5000, a * 90) * (night ? 1.3 : 1);
       out.textContent = "от " + fmt(lo) + " ₽";
-      let t = heavy ? `${fmt(lo)}–${fmt(hi)} ₽ за уборку (220–250 ₽/м²).` : "180 ₽/м², минимальный заказ 5 000 ₽.";
-      if (w) t += ` Окна: ещё ${fmt(w * 300)}–${fmt(w * 500)} ₽ за ${w} створ${w % 10 === 1 && w % 100 !== 11 ? "ку" : (w % 10 >= 2 && w % 10 <= 4 && (w % 100 < 12 || w % 100 > 14) ? "ки" : "ок")}.`;
-      t += a <= 100 ? " Обычно — за 1 рабочий день." : "";
-      note.textContent = t;
+      note.textContent = `${fmt(lo)}–${fmt(hi)} ₽ за уборку` + (night ? ", с ночным выездом (+20–30%)." : ".") + " Точнее — после фото: зависит от числа гостей и объёма мусора.";
     } else {
       const lo = Math.max(4500, a * 30), hi = Math.max(4500, a * 45);
       out.textContent = "от " + fmt(lo) + " ₽";
       note.textContent = (lo === hi ? `${fmt(lo)} ₽` : `${fmt(lo)}–${fmt(hi)} ₽`) + " за выезд. Точнее — после фото: зависит от частоты, санузлов и рабочих мест.";
     }
   }
-  [type, area, cond, win].forEach(el => el.addEventListener("input", estimate));
+  [type, area, when, guests].forEach(el => el.addEventListener("input", estimate));
   type.addEventListener("change", () => { selectTab(type.value); setType(type.value); });
   $$("[data-pick]").forEach(a => a.addEventListener("click", () => { selectTab(a.dataset.pick); setType(a.dataset.pick); }));
-  // ?offer=office или ?offer=renovation — отдельная ссылка под каждую рекламную кампанию
+  // ?offer=office или ?offer=event — отдельная ссылка под каждую рекламную кампанию
   const HERO = {
-    renovation: ["Уборка квартир и помещений после ремонта — цена фиксируется до выезда",
-      "Пришлите фото объекта — рассчитаем стоимость и согласуем её до начала работ. Если объект соответствует фото и описанию, сумма на месте не меняется."],
-    office: ["Регулярная уборка офисов 50–300 м² без своей уборщицы",
-      "Фиксированный график, замена исполнителя, если сотрудник не вышел, и контроль качества по чек-листу. Договор и оплата по безналу."]
+    office: ["Регулярная уборка офисов 50–300 м² в Санкт-Петербурге без своей уборщицы",
+      "Фиксированный график, замена исполнителя, если сотрудник не вышел, и контроль качества по чек-листу. Договор и оплата по безналу."],
+    event: ["Уборка после корпоратива — к началу рабочего дня офис чистый",
+      "Приедем ночью сразу после праздника или рано утром. Стоимость считаем по фото и фиксируем до выезда. Офисы, лофты и залы в Санкт-Петербурге."]
   };
   const offer = new URLSearchParams(location.search).get("offer");
-  const startType = HERO[offer] ? offer : "renovation";
+  const startType = HERO[offer] ? offer : "office";
   if (HERO[offer]) {
     $("#hero-title").textContent = HERO[offer][0];
     $("#hero-lead").textContent = HERO[offer][1];
-    const cards = $$(".hero-card"), btns = $$(".hero .btn");
-    if (offer === "office") {
+    const cards = $$(".hero-card"), btns = $$(".hero .btns .btn");
+    if (offer === "event") {
       cards[0].parentNode.prepend(cards[1]);
       btns[0].parentNode.prepend(btns[1]);
       btns[0].classList.add("ghost"); btns[1].classList.remove("ghost");
@@ -688,10 +675,10 @@ const CONFIG = {
     btn.disabled = true; btn.textContent = "Отправляем…";
     const photos = (await Promise.all([...photosInput.files].slice(0, 5).map(compress))).filter(Boolean);
     const payload = {
-      type: type.value === "renovation" ? "После ремонта" : "Регулярная уборка бизнеса",
+      type: type.value === "event" ? "После корпоратива / праздника" : "Регулярная уборка",
       city: fd.get("city"), area: fd.get("area"),
-      condition: type.value === "renovation" ? (cond.value === "heavy" ? "Сильно загрязнено" : "Обычное") : "",
-      windows: type.value === "renovation" ? (fd.get("windows") || "") : "",
+      condition: type.value === "event" ? WHEN[when.value] + (guests.value ? ", гостей: " + guests.value : "") : "",
+      windows: "",
       date: fd.get("date") || "", name: fd.get("name").trim(), phone: fd.get("phone").trim(),
       comment: fd.get("comment") || "", estimate: $("#est-price").textContent,
       page: location.href.split("?")[0], utm, photos
